@@ -9,7 +9,7 @@
 body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#1a1a1a;background:#fff}
 a{color:inherit;text-decoration:none}
 header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:14px 5%;border-bottom:1px solid #fde3cf}
-..logo{
+.logo{
   display:flex;
   align-items:center;
   gap:12px;
@@ -49,7 +49,7 @@ footer{background:#111;color:#fff;text-align:center;padding:16px}
     <img src="Ulogo.png" alt="Ubaid Gill Studio Logo">
     <span>UBAID GILL <b>STUDIO</b></span>
 </div>
-  <nav><a href="#home">Home</a><a href="#services">Services</a><a href="#order">Order Now</a><a class="btn" href="mailto:YOUR-EMAIL@gmail.com">Contact</a></nav>
+  <nav><a href="#home">Home</a><a href="#services">Services</a><a href="#order">Order Now</a><a class="btn" href="mailto:ubaidgillstudio@gmail.com">Contact</a></nav>
 </header>
 
 <section class="hero" id="home">
@@ -71,9 +71,10 @@ footer{background:#111;color:#fff;text-align:center;padding:16px}
 
 <section class="order" id="order">
   <h2>Order Form</h2>
- <form id="orderForm" action="https://api.web3forms.com/submit" method="POST">
+ <form id="orderForm" autocomplete="off" action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="access_key" value="a76f080d-e136-4536-bd39-76e9f5fa9895">
     <input type="hidden" name="subject" value="New order from website">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
     <input name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
     <select name="service" required>
@@ -84,10 +85,89 @@ footer{background:#111;color:#fff;text-align:center;padding:16px}
     <input name="size" placeholder="Size">
     <input name="brand" placeholder="Brand Name">
     <textarea name="details" rows="4" placeholder="Describe your idea, colors and details..."></textarea>
-    <button class="btn" type="submit">Submit Order</button>
+    <button class="btn" id="sendBtn" type="submit">Submit Order</button>
+    <p id="formMsg" style="font-weight:700"></p>
   </form>
 </section>
 
 <footer>&copy; Ubaid Gill Studio | ubaidgillstudio@gmail.com</footer>
+<style>
+#okOverlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;background:rgba(0,0,0,.6);z-index:9999;cursor:pointer}
+#okOverlay.show{display:flex}
+.coin{width:150px;height:150px;transform:translateY(120vh) scale(.5);filter:drop-shadow(0 10px 22px rgba(0,0,0,.45))}
+.coin svg{width:100%;height:100%}
+.coin .tk{stroke-dasharray:70;stroke-dashoffset:70}
+#okOverlay.show .coin{animation:fly 1.4s cubic-bezier(.2,.7,.3,1) forwards}
+#okOverlay.show .coin .tk{animation:draw .5s 1.4s forwards}
+#okText{color:#fff;font:700 1.6rem Arial,Helvetica,sans-serif;margin-top:24px;text-align:center;opacity:0;transform:translateY(20px)}
+#okOverlay.show #okText{animation:rise .5s 2s forwards}
+.conf{position:fixed;left:50%;top:44%;width:10px;height:14px;z-index:10000;pointer-events:none}
+@keyframes fly{0%{transform:translateY(120vh) rotateY(0) scale(.5)}70%{transform:translateY(-8vh) rotateY(1080deg) scale(1.1)}100%{transform:translateY(0) rotateY(1440deg) scale(1)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes rise{to{opacity:1;transform:none}}
+</style>
+<div id="okOverlay">
+  <div class="coin">
+    <svg viewBox="0 0 100 100">
+      <polygon points="50.0,10.0 58.5,18.1 70.0,15.4 73.3,26.7 84.6,30.0 81.9,41.5 90.0,50.0 81.9,58.5 84.6,70.0 73.3,73.3 70.0,84.6 58.5,81.9 50.0,90.0 41.5,81.9 30.0,84.6 26.7,73.3 15.4,70.0 18.1,58.5 10.0,50.0 18.1,41.5 15.4,30.0 26.7,26.7 30.0,15.4 41.5,18.1" fill="#0b63f6" stroke="#0b63f6" stroke-width="7" stroke-linejoin="round"/>
+      <path class="tk" d="M31 51 L44 64 L70 36" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div id="okText">Your order has been submitted</div>
+</div>
+<script>
+(function(){
+var f=document.getElementById("orderForm"),b=document.getElementById("sendBtn"),m=document.getElementById("formMsg"),o=document.getElementById("okOverlay"),busy=false,tm;
+function hide(){o.classList.remove("show");}
+o.addEventListener("click",hide);
+function confetti(){
+  var cols=["#f97316","#fbbf24","#22c55e","#3b82f6","#ec4899","#a855f7"];
+  for(var i=0;i<80;i++){
+    var d=document.createElement("div"),a=-Math.random()*Math.PI,v=140+Math.random()*260;
+    d.className="conf";d.style.background=cols[i%cols.length];
+    document.body.appendChild(d);
+    var dx=Math.cos(a)*v,dy=Math.sin(a)*v,dur=1800+Math.random()*1400;
+    d.animate([
+      {transform:"translate(0,0) rotate(0deg)",opacity:1},
+      {transform:"translate("+dx+"px,"+dy+"px) rotate(240deg)",opacity:1,offset:.4},
+      {transform:"translate("+(dx*1.2)+"px,"+(window.innerHeight*.6)+"px) rotate(720deg)",opacity:0}
+    ],{duration:dur,easing:"ease-out",fill:"forwards"});
+    (function(x){setTimeout(function(){x.remove();},dur+100);})(d);
+  }
+}
+function showSuccess(){
+  clearTimeout(tm);
+  o.classList.remove("show");void o.offsetWidth;o.classList.add("show");
+  if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){setTimeout(confetti,1500);}
+  tm=setTimeout(hide,6500);
+}
+window.showSuccess=showSuccess;
+window.addEventListener("pageshow",function(e){if(e.persisted){f.reset();}});
+f.addEventListener("submit",function(e){
+  e.preventDefault();
+  if(busy)return;
+  var d=new FormData(f);
+  var sig=[d.get("name"),d.get("email"),d.get("service"),d.get("size"),d.get("brand"),d.get("details")].join("|");
+  var last="",lt=0;
+  try{last=localStorage.getItem("lastOrderSig")||"";lt=+localStorage.getItem("lastOrderTime")||0;}catch(x){}
+  if(sig===last&&Date.now()-lt<600000){m.textContent="This order was already sent. Please change the details to send another.";return;}
+  busy=true;b.disabled=true;b.textContent="Sending...";m.textContent="";
+  fetch("https://api.web3forms.com/submit",{method:"POST",body:d})
+  .then(function(r){return r.json();})
+  .then(function(j){
+    if(!j.success){throw new Error("fail");}
+    try{localStorage.setItem("lastOrderSig",sig);localStorage.setItem("lastOrderTime",String(Date.now()));}catch(x){}
+    f.reset();
+    b.textContent="Order Sent";
+    showSuccess();
+    setTimeout(function(){b.disabled=false;b.textContent="Submit Order";busy=false;},8000);
+  })
+  .catch(function(){
+    m.textContent="Something went wrong. Please try again.";
+    b.disabled=false;b.textContent="Submit Order";busy=false;
+  });
+});
+})();
+</script>
 </body>
 </html>
