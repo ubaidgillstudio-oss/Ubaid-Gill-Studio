@@ -9,7 +9,25 @@
 body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#1a1a1a;background:#fff}
 a{color:inherit;text-decoration:none}
 header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:14px 5%;border-bottom:1px solid #fde3cf}
-.logo{font-weight:800;font-size:1.3rem}.logo b{color:#f97316}
+..logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+  font-size:1.3rem;
+  white-space:nowrap;
+}
+
+.logo img{
+  width:44px;
+  height:44px;
+  object-fit:contain;
+  display:block;
+}
+
+.logo b{
+  color:#f97316;
+}
 nav a{margin-left:16px}
 .btn{background:#f97316;color:#fff;padding:10px 20px;border-radius:8px;border:0;font-size:1rem;cursor:pointer;display:inline-block}
 .hero{display:flex;flex-wrap:wrap;align-items:center;gap:30px;padding:50px 5%}
@@ -27,7 +45,10 @@ footer{background:#111;color:#fff;text-align:center;padding:16px}
 </head>
 <body>
 <header>
-  <div class="logo">UBAID GILL <b>STUDIO</b></div>
+<div class="logo">
+    <img src="ulogo.png" alt="Ubaid Gill Studio Logo">
+    <span>UBAID GILL <b>STUDIO</b></span>
+</div>
   <nav><a href="#home">Home</a><a href="#services">Services</a><a href="#order">Order Now</a><a class="btn" href="mailto:YOUR-EMAIL@gmail.com">Contact</a></nav>
 </header>
 
