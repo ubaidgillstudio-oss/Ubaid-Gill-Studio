@@ -13,8 +13,7 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;co
 a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{font-family:inherit}
 header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:12px 5%;border-bottom:1px solid var(--l)}
 .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.2rem;white-space:nowrap}
-.badge{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--o),var(--od));color:#fff;display:grid;place-items:center;font-weight:900}
-.logo b{color:var(--o)}
+.logo img{width:42px;height:42px;object-fit:contain}.logo b{color:var(--o)}
 nav{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
 nav a{padding:8px 12px;border-radius:8px;font-weight:600;font-size:.95rem}nav a:hover{background:var(--os)}
 .btn{background:var(--o);color:#fff;padding:11px 20px;border-radius:10px;border:0;font-size:.98rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .15s,background .2s}
@@ -54,50 +53,19 @@ footer{background:#0f172a;color:#e2e8f0;padding:28px 5%;display:flex;flex-wrap:w
 footer a:hover{color:#fdba74}.fl{display:flex;gap:14px;flex-wrap:wrap;font-size:.92rem}
 #toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,100px);background:#0f172a;color:#fff;padding:12px 20px;border-radius:10px;font-weight:600;opacity:0;transition:.3s;z-index:100000;pointer-events:none}
 #toast.show{opacity:1;transform:translate(-50%,0)}
-/* review modal */
 .modal{position:fixed;inset:0;background:rgba(15,23,42,.65);display:none;align-items:center;justify-content:center;z-index:9999;padding:16px}
-.modal.show{display:flex}.modal.clear{background:transparent}
-.mc{background:#fff;border-radius:18px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;padding:26px;transition:transform .8s cubic-bezier(.6,0,.3,1),opacity .3s,border-radius .8s}
+.modal.show{display:flex}
+.mc{background:#fff;border-radius:18px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;padding:26px}
 .mc h3{margin:0 0 6px;color:var(--od)}
-.mc.shrink{transform:scale(.1);border-radius:60px;overflow:hidden}
 .rr{display:grid;grid-template-columns:130px 1fr;gap:8px;padding:10px 0;border-bottom:1px dashed #e2e8f0;font-size:.94rem}
 .rr .k{color:var(--m);font-weight:600}.rr .v{word-break:break-word;white-space:pre-wrap}
 .ma{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}.ma .btn{flex:1 1 auto}
-/* delivery animation */
-#ov{position:fixed;inset:0;z-index:9998;display:none;overflow:hidden;background:linear-gradient(180deg,#bfdbfe,#eff6ff 65%,#fff7ed);opacity:0;transition:opacity .4s}
-#ov.show{display:block}#ov.vis{opacity:1}
-.el{position:absolute;pointer-events:none}
-.cloud{opacity:.9;animation:drift linear infinite}
-@keyframes drift{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}
-#shop{bottom:0;transform:translateX(-50%);height:auto}
-#pkg{transform:translate(-50%,-50%) scale(0);transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
-#pkg.in{transform:translate(-50%,-50%) scale(1)}
-#grp{width:130px;margin-left:-65px;transition:left 1.5s ease-in-out,top 1.3s ease-in-out}
-#rope{margin:0 auto;width:3px;height:55px;background:#334155;transform-origin:top;transform:scaleY(0);transition:transform .5s}
-#rope.on{transform:scaleY(1)}
-#gbox{margin:0 auto;width:46px;opacity:0;transition:opacity .2s,transform .4s}
-#gbox.gone{opacity:0;transform:scale(.2)}
-.rotor{transform-origin:60px 8px;animation:spin .12s linear infinite}
-@keyframes spin{from{transform:scaleX(1)}50%{transform:scaleX(.15)}to{transform:scaleX(1)}}
-#coin{width:110px;height:110px;margin:-55px 0 0 -55px;opacity:0;transform:scale(.2);transition:left 1.2s cubic-bezier(.2,.8,.3,1),top 1.2s cubic-bezier(.2,.8,.3,1),transform 1.2s cubic-bezier(.2,.8,.3,1),opacity .3s}
-#coin svg{width:100%;height:100%;filter:drop-shadow(0 10px 22px rgba(11,99,246,.4))}
-.tick{stroke-dasharray:60;stroke-dashoffset:60;transition:stroke-dashoffset .6s ease}
-#coin.ok .tick{stroke-dashoffset:0}
-#msg{position:absolute;left:0;right:0;top:27%;padding:0 18px;text-align:center;opacity:0;transform:translateY(18px);transition:.7s;pointer-events:none}
-#msg.show{opacity:1;transform:none;pointer-events:auto}
-#msg h2{font-size:clamp(1.5rem,5vw,2.4rem);color:var(--b);margin:0 0 6px}
-#msg p{margin:0 0 6px;font-weight:600}
-#oid{display:inline-block;background:#fff;border:2px solid var(--b);border-radius:12px;padding:8px 18px;font-family:ui-monospace,Consolas,monospace;font-weight:800;color:var(--b);margin:8px 0 14px}
-.sa{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.cf{position:fixed;top:-20px;width:9px;height:14px;border-radius:2px;z-index:10000;pointer-events:none;animation:fall linear forwards}
-@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
 @media(max-width:640px){.g2{grid-template-columns:1fr}.hero{padding:40px 5% 20px}.card{padding:18px}.rr{grid-template-columns:1fr;gap:2px}.logo{font-size:1rem}}
-@media(prefers-reduced-motion:reduce){.cloud,.rotor{animation:none}}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo"><div class="badge">UG</div><span>UBAID GILL <b>STUDIO</b></span></div>
+  <div class="logo"><img src="Ulogo.png" alt="Ubaid Gill Studio logo" width="42" height="42" onerror="this.style.display='none'"><span>UBAID GILL <b>STUDIO</b></span></div>
   <nav><a href="#home">Home</a><a href="#services">Services</a><a href="#order">Order Now</a><button class="btn" id="shareNav" type="button">🔗 Share</button></nav>
 </header>
 <main>
@@ -153,14 +121,14 @@ footer a:hover{color:#fdba74}.fl{display:flex;gap:14px;flex-wrap:wrap;font-size:
         <div><label for="ref">Reference link (optional)</label><input id="ref" name="reference" type="url" maxlength="300" placeholder="Google Drive / Pinterest link"></div>
       </div>
     </fieldset>
-    <div class="fa"><button class="btn" type="submit">Review Order</button><button class="btn ghost" type="reset" id="reset">Clear</button></div>
+    <div class="fa"><button class="btn" type="submit">Review Order</button><button class="btn ghost" type="reset">Clear</button></div>
   </form>
 </div></div>
 </main>
 
 <footer>
   <div><b>Ubaid Gill Studio</b><br><small>© <span id="yr"></span> All rights reserved</small></div>
-  <div class="fl"><a href="#home">Home</a><a href="#services">Services</a><a href="#order">Order</a></div>
+  <div class="fl"><a href="mailto:ubaidgillstudio@gmail.com">ubaidgillstudio@gmail.com</a><a href="#services">Services</a><a href="#order">Order</a></div>
   <button class="btn" id="shareFoot" type="button">🔗 Share website</button>
 </footer>
 
@@ -172,69 +140,17 @@ footer a:hover{color:#fdba74}.fl{display:flex;gap:14px;flex-wrap:wrap;font-size:
     <div class="ma"><button class="btn ghost" id="edit" type="button">Edit</button><button class="btn blue" id="submit" type="button">Submit Order</button></div>
   </div>
 </div>
-
-<div id="ov" aria-live="polite">
-  <svg width="0" height="0" style="position:absolute"><defs>
-    <g id="boxsvg"><rect x="4" y="12" width="52" height="40" rx="4" fill="#d6a15c"/><rect x="4" y="12" width="52" height="12" rx="4" fill="#b8843f"/><rect x="26" y="12" width="8" height="40" fill="#f97316"/></g>
-  </defs></svg>
-  <svg class="el cloud" style="top:8%;width:150px;animation-duration:26s" viewBox="0 0 160 70"><g fill="#fff"><ellipse cx="50" cy="45" rx="42" ry="22"/><ellipse cx="95" cy="35" rx="38" ry="28"/><ellipse cx="125" cy="48" rx="30" ry="18"/></g></svg>
-  <svg class="el cloud" style="top:20%;width:110px;animation-duration:34s;animation-delay:-14s" viewBox="0 0 160 70"><g fill="#fff"><ellipse cx="50" cy="45" rx="42" ry="22"/><ellipse cx="95" cy="35" rx="38" ry="28"/><ellipse cx="125" cy="48" rx="30" ry="18"/></g></svg>
-  <svg class="el cloud" style="top:4%;width:90px;animation-duration:40s;animation-delay:-28s" viewBox="0 0 160 70"><g fill="#fff"><ellipse cx="50" cy="45" rx="42" ry="22"/><ellipse cx="95" cy="35" rx="38" ry="28"/><ellipse cx="125" cy="48" rx="30" ry="18"/></g></svg>
-
-  <svg class="el" id="shop" viewBox="0 0 300 240">
-    <rect x="10" y="26" width="280" height="16" rx="3" fill="#334155"/>
-    <rect x="20" y="42" width="260" height="198" fill="#fff7ed"/>
-    <rect x="30" y="50" width="240" height="40" rx="6" fill="#f97316"/>
-    <text x="150" y="77" text-anchor="middle" font-family="system-ui,Arial" font-weight="800" font-size="20" fill="#fff">UBAID GILL STUDIO</text>
-    <rect x="34" y="104" width="160" height="100" rx="6" fill="#bfdbfe" stroke="#334155" stroke-width="4"/>
-    <path d="M60 204l50-100h20l-50 100z" fill="#fff" opacity=".35"/>
-    <rect x="208" y="104" width="58" height="136" rx="4" fill="#0b63f6"/><circle cx="256" cy="176" r="3.5" fill="#fff"/>
-    <rect x="0" y="238" width="300" height="2" fill="#334155"/>
-  </svg>
-
-  <svg class="el" id="pkg" width="70" height="70" viewBox="0 0 60 60"><use href="#boxsvg"/></svg>
-
-  <div class="el" id="grp">
-    <svg viewBox="0 0 120 60" width="130" style="display:block">
-      <g class="rotor"><rect x="5" y="6" width="110" height="4" rx="2" fill="#334155"/></g>
-      <rect x="58" y="8" width="4" height="8" fill="#334155"/>
-      <ellipse cx="55" cy="30" rx="32" ry="17" fill="#f97316"/>
-      <path d="M72 24c6 0 16 4 16 4l26-9v8l-26 8c-8 0-16-4-16-11z" fill="#ea580c"/>
-      <rect x="110" y="12" width="6" height="16" rx="2" fill="#334155"/>
-      <path d="M44 22c10-4 22 0 24 8H40z" fill="#bfdbfe"/>
-      <path d="M28 52h56M40 46v6M70 46v6" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
-    </svg>
-    <div id="rope"></div>
-    <svg id="gbox" viewBox="0 0 60 60"><use href="#boxsvg"/></svg>
-  </div>
-
-  <div class="el" id="coin">
-    <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="#fbbf24" stroke="#d97706" stroke-width="5"/><circle cx="60" cy="60" r="44" fill="#fcd34d" stroke="#f59e0b" stroke-width="3"/><path class="tick" d="M36 62l16 16 32-34" fill="none" stroke="#0b63f6" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </div>
-
-  <div id="msg">
-    <h2>Congratulations!</h2>
-    <p>Your order has been submitted.</p>
-    <p>Thanks for trusting Ubaid Gill Studio, thanks for the deal!</p>
-    <div id="oid"></div>
-    <div class="sa"><button class="btn blue" id="again" type="button">New Order</button><button class="btn ghost" id="shareDone" type="button">🔗 Share</button></div>
-  </div>
-</div>
 <div id="toast" role="status"></div>
 
 <script>
 (function(){
 "use strict";
-// Free form backend: get a key at https://web3forms.com and paste it here.
-var WEB3FORMS_KEY="YOUR_ACCESS_KEY_HERE";
+var WEB3FORMS_KEY="a76f080d-e136-4536-bd39-76e9f5fa9895";
 var $=function(i){return document.getElementById(i)};
-var f=$("f"),svc=$("service"),desc=$("desc"),modal=$("modal"),mc=$("mc"),ov=$("ov");
-var sleep=function(ms){return new Promise(function(r){setTimeout(r,ms)})};
-var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var f=$("f"),svc=$("service"),desc=$("desc"),modal=$("modal");
 $("yr").textContent=new Date().getFullYear();
 function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove("show")},2400)}
 
-// services
 var cards=document.querySelectorAll(".svc");
 function pick(v){cards.forEach(function(c){var s=c.dataset.svc===v;c.classList.toggle("sel",s);c.setAttribute("aria-checked",s)});svc.value=v}
 cards.forEach(function(c){
@@ -245,16 +161,14 @@ svc.addEventListener("change",function(){pick(svc.value)});
 f.addEventListener("reset",function(){pick("");$("cc").textContent="0 / 1500";document.querySelectorAll(".invalid").forEach(function(x){x.classList.remove("invalid")});document.querySelectorAll(".em").forEach(function(x){x.classList.remove("show")})});
 desc.addEventListener("input",function(){$("cc").textContent=desc.value.length+" / 1500"});
 
-// share
 function share(){
-  var d={title:"Ubaid Gill Studio",text:"Premium graphic design: logos, posters, flyers and more.",url:location.href};
+  var d={title:"Ubaid Gill Studio",text:"Premium graphic design: logos, posters, flyers and more.",url:location.href.split("#")[0]};
   if(navigator.share){navigator.share(d).catch(function(){})}
-  else if(navigator.clipboard){navigator.clipboard.writeText(location.href).then(function(){toast("Link copied")})}
+  else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){toast("Link copied")})}
   else{toast("Copy the link from the address bar")}
 }
-["shareNav","shareFoot","shareDone"].forEach(function(i){$(i).addEventListener("click",share)});
+["shareNav","shareFoot"].forEach(function(i){$(i).addEventListener("click",share)});
 
-// validate
 function bad(id,e,on){$(id).classList.toggle("invalid",on);$(e).classList.toggle("show",on);return on}
 function validate(){
   var n=f.name.value.trim(),e=f.email.value.trim(),d=desc.value.trim();
@@ -273,87 +187,185 @@ f.addEventListener("submit",function(e){
   if(!validate())return;
   var d=data(),rows=[["Service",d.service],["Name",d.name],["Email",d.email],["Phone",d.phone],["Deadline",d.deadline],["Reference",d.reference],["Idea",d.description]];
   $("rv").innerHTML=rows.filter(function(r){return r[1]}).map(function(r){return '<div class="rr"><div class="k">'+r[0]+'</div><div class="v">'+esc(r[1])+'</div></div>'}).join("");
-  mc.className="mc";modal.className="modal show";
-  $("submit").disabled=false;$("submit").focus();
+  modal.className="modal show";
+  $("submit").disabled=false;$("submit").textContent="Submit Order";$("submit").focus();
 });
-$("edit").addEventListener("click",function(){modal.classList.remove("show")});
+$("edit").addEventListener("click",function(){if(!$("submit").disabled)modal.classList.remove("show")});
 modal.addEventListener("click",function(e){if(e.target===modal&&!$("submit").disabled)modal.classList.remove("show")});
 
 function send(d){
-  if(!WEB3FORMS_KEY||WEB3FORMS_KEY.indexOf("YOUR_")===0)return Promise.resolve(true);
   var body=Object.assign({access_key:WEB3FORMS_KEY,subject:"New order: "+d.service+" from "+d.name,from_name:"Ubaid Gill Studio"},d);
   return fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(body)})
     .then(function(r){return r.json()}).then(function(j){return !!j.success}).catch(function(){return false});
 }
-
-// ===== delivery animation =====
-function confetti(){
-  var cols=["#f97316","#0b63f6","#fbbf24","#16a34a","#ec4899","#8b5cf6"];
-  for(var i=0;i<110;i++){
-    var c=document.createElement("div");c.className="cf";
-    c.style.left=Math.random()*100+"vw";c.style.background=cols[i%cols.length];
-    c.style.animationDuration=(2.2+Math.random()*2.2)+"s";c.style.animationDelay=(Math.random()*.9)+"s";
-    c.style.transform="rotate("+Math.random()*360+"deg)";
-    document.body.appendChild(c);
-    (function(x){setTimeout(function(){x.remove()},6000)})(c);
-  }
-}
-async function play(oid){
-  var W=innerWidth,H=innerHeight,T=reduce?.3:1;
-  var shop=$("shop"),pkg=$("pkg"),grp=$("grp"),rope=$("rope"),gbox=$("gbox"),coin=$("coin"),msg=$("msg");
-  $("oid").textContent="Order ID: "+oid;
-  var sw=Math.min(300,W*.8),shopCx=W>700?W*.68:W/2;
-  shop.style.width=sw+"px";shop.style.left=shopCx+"px";
-  var shopH=sw*.8,roofY=H-shopH+26*sw/300;
-  var pkgX=W>700?W*.3:W/2,pkgY=H/2;
-  pkg.style.left=pkgX+"px";pkg.style.top=pkgY+"px";
-  var hH=130*60/120,ropeH=55,boxH=46;
-  grp.style.left=(-120)+"px";grp.style.top=(pkgY-35-ropeH-hH)+"px";
-
-  ov.classList.add("show");void ov.offsetWidth;ov.classList.add("vis");
-  modal.classList.add("clear");
-  // 1. review form shrinks
-  mc.classList.add("shrink");await sleep(850*T);
-  modal.classList.remove("show","clear");
-  // 2. box appears
-  pkg.classList.add("in");await sleep(500*T);
-  // 3. helicopter arrives and hooks the box
-  grp.style.left=pkgX+"px";await sleep(1600*T);
-  rope.classList.add("on");await sleep(600*T);
-  gbox.style.opacity=1;pkg.style.opacity=0;
-  // 4. lift to cloud level
-  grp.style.top=H*.1+"px";await sleep(1400*T);
-  // 5. fly over the shop
-  grp.style.left=shopCx+"px";await sleep(1700*T);
-  // 6. descend to the roof
-  grp.style.top=(roofY-hH-ropeH-boxH+4)+"px";await sleep(1500*T);
-  // 7. drop the box
-  rope.classList.remove("on");gbox.classList.add("gone");await sleep(500*T);
-  grp.style.top="-30%";grp.style.left=(W+150)+"px";
-  // 8. coin spins out of the shop window
-  var wx=shopCx-sw/2+114*sw/300,wy=H-shopH+154*sw/300;
-  coin.style.transition="none";coin.style.left=wx+"px";coin.style.top=wy+"px";
-  coin.style.transform="scale(.2)";coin.style.opacity=1;void coin.offsetWidth;
-  coin.style.transition="";
-  coin.style.left=(W/2)+"px";coin.style.top=Math.max(95,H*.15)+"px";
-  coin.style.transform="scale(1) rotateY(1440deg)";
-  await sleep(1300*T);
-  // 9. tick, confetti, message
-  coin.classList.add("ok");await sleep(700*T);
-  if(!reduce)confetti();
-  msg.classList.add("show");
-  $("again").focus();
-}
 $("submit").addEventListener("click",async function(){
-  var btn=this;btn.disabled=true;btn.textContent="Sending...";
+  var btn=this;if(btn.disabled)return;
+  btn.disabled=true;btn.textContent="Sending...";
   var d=data(),oid="UG-"+Date.now().toString(36).toUpperCase().slice(-6);
   d.order_id=oid;
   var ok=await send(d);
   if(!ok){btn.disabled=false;btn.textContent="Submit Order";toast("Could not send. Check your internet and try again.");return}
   btn.textContent="Submit Order";
-  play(oid);
+  deliveryPlay(oid);
 });
-$("again").addEventListener("click",function(){location.href=location.pathname+"#order";location.reload()});
+})();
+</script>
+<style>
+#dv{position:fixed;inset:0;z-index:9998;display:none;opacity:0;transition:opacity .4s;overflow:hidden;background:linear-gradient(180deg,#9fd0ff 0%,#dff0ff 55%,#fff4e0 100%)}
+#dv.on{display:block}#dv.vis{opacity:1}
+#dvScene{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transition:opacity .8s}
+.fb{transform-box:fill-box;transform-origin:center}
+#dvPaper{opacity:0;transform:scale(.7)}#dvEnvBody{opacity:0}
+#dvFlap{opacity:0;transform:scaleY(-1);transform-origin:50% 0}#dvSeal{transform:scale(0)}
+#dvEnv{transform:translate(280px,150px) scale(1.4)}#dvShop{transform:translateX(700px)}
+#dvScene.riding .spin{animation:dvspin .45s linear infinite}
+#dvScene.riding .pedal{animation:dvpedal .45s ease-in-out infinite alternate}
+#dvScene.riding .bob{animation:dvbob .22s ease-in-out infinite alternate}
+.spin{transform-box:fill-box;transform-origin:center}.pedal{transform-box:fill-box;transform-origin:50% 0}
+.blink{animation:dvpulse .5s 2}
+@keyframes dvspin{to{transform:rotate(360deg)}}
+@keyframes dvpedal{from{transform:rotate(28deg)}to{transform:rotate(-28deg)}}
+@keyframes dvbob{to{transform:translateY(-2px)}}
+@keyframes dvpulse{50%{transform:scale(1.2)}}
+#dvSkip{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:14px;z-index:5;background:rgba(255,255,255,.88);border:0;border-radius:99px;padding:8px 16px;font:600 .9rem system-ui,Arial;color:#0f172a;cursor:pointer}
+#dvFinal{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;pointer-events:none}
+#dvFinal.show{pointer-events:auto}
+#dvFinal .t{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}
+#dvFinal.show .t{opacity:1;transform:none}
+#dvFinal>.t:nth-child(3){transition-delay:.2s}#dvFinal>.t:nth-child(4){transition-delay:.35s}#dvFinal>.t:nth-child(5){transition-delay:.5s}
+#dvFinal h2{margin:0 0 4px;font-size:clamp(1.7rem,5.5vw,2.5rem);color:#0b63f6}
+#dvFinal p{margin:0 0 6px;font-weight:600;color:#0f172a}
+#dvCoin{width:clamp(110px,24vw,150px);height:clamp(110px,24vw,150px);margin:14px 0;opacity:0;transform:scale(0)}
+#dvCoin svg{width:100%;height:100%;filter:drop-shadow(0 10px 20px rgba(29,137,238,.45))}
+.dvtick{stroke-dasharray:80;stroke-dashoffset:80}
+#dvOid{display:inline-block;background:#fff;border:2px solid #0b63f6;border-radius:12px;padding:6px 16px;font:800 1rem ui-monospace,Consolas,monospace;color:#0b63f6;margin:6px 0 10px}
+.dvbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.dvp{position:fixed;left:0;top:0;border-radius:50%;pointer-events:none;z-index:10000}
+</style>
+<script>
+(function(){
+"use strict";
+var root=null,timers=[],started=false,sparkT=null,ba=null,sa=null;
+var COLS=["#ef4444","#f97316","#facc15","#22c55e","#0ea5e9","#4f46e5","#a855f7"];
+var $=function(i){return document.getElementById(i)};
+function at(ms,fn){timers.push(setTimeout(fn,ms))}
+function badge(){var p=[],i,a,r;for(i=0;i<140;i++){a=i/140*6.2832;r=41+3.4*Math.cos(a*14);p.push((50+r*Math.cos(a)).toFixed(1)+","+(50+r*Math.sin(a)).toFixed(1))}return p.join(" ")}
+function world(){
+  var s="",i,x,h,w,r,cols=["#cbd5e1","#fde68a","#fbcfe8","#bfdbfe","#fed7aa","#d9f99d","#e9d5ff"];
+  for(i=0,x=0;x<1500;i++){
+    h=100+(i*53)%70;w=78+(i*29)%26;
+    s+='<rect x="'+x+'" y="'+(352-h)+'" width="'+w+'" height="'+h+'" fill="'+cols[i%7]+'"/>';
+    for(r=14;r<h-16;r+=28){s+='<rect x="'+(x+12)+'" y="'+(352-h+r)+'" width="13" height="14" fill="#fff" opacity=".8"/><rect x="'+(x+w-25)+'" y="'+(352-h+r)+'" width="13" height="14" fill="#fff" opacity=".8"/>'}
+    x+=w+22+(i*17)%30;
+  }
+  for(x=40;x<1500;x+=95+(x%3)*14){s+='<rect x="'+(x-3)+'" y="332" width="6" height="22" fill="#92400e"/><circle cx="'+x+'" cy="322" r="'+(17+(x%2)*4)+'" fill="'+(((x/95)|0)%2?"#16a34a":"#22c55e")+'"/>'}
+  for(x=0;x<1500;x+=64){s+='<rect x="'+x+'" y="392" width="34" height="5" rx="2" fill="#fff" opacity=".85"/>'}
+  return s;
+}
+var SHOP='<g id="dvShop"><rect x="168" y="196" width="224" height="14" rx="3" fill="#334155"/><rect id="dvRoof" x="276" y="188" width="8" height="8" fill="none"/><rect x="175" y="210" width="210" height="142" fill="#fff7ed"/><rect x="183" y="216" width="194" height="34" rx="6" fill="#f97316"/><text x="280" y="238" text-anchor="middle" font-family="system-ui,Arial" font-weight="800" font-size="15" fill="#fff">UBAID GILL STUDIO</text><rect x="187" y="262" width="100" height="70" rx="5" fill="#bfdbfe" stroke="#334155" stroke-width="3"/><rect x="305" y="262" width="62" height="90" rx="3" fill="#0b63f6"/><circle cx="357" cy="310" r="3" fill="#fff"/><g id="dvBox" class="fb"><rect x="130" y="316" width="36" height="36" rx="4" fill="#0b63f6"/><rect x="136" y="322" width="24" height="5" rx="2" fill="#0f172a"/><text x="148" y="338" text-anchor="middle" font-family="system-ui,Arial" font-weight="800" font-size="6" fill="#fff">SUBMIT</text><text x="148" y="346" text-anchor="middle" font-family="system-ui,Arial" font-weight="800" font-size="6" fill="#fff">ORDER</text></g></g>';
+var RIDER='<g transform="translate(62 352)"><g class="bob"><circle cx="-30" cy="-20" r="20" fill="none" stroke="#1e293b" stroke-width="3"/><g class="spin" stroke="#475569" stroke-width="1.5"><line x1="-48" y1="-20" x2="-12" y2="-20"/><line x1="-30" y1="-38" x2="-30" y2="-2"/></g><circle cx="30" cy="-20" r="20" fill="none" stroke="#1e293b" stroke-width="3"/><g class="spin" stroke="#475569" stroke-width="1.5"><line x1="12" y1="-20" x2="48" y2="-20"/><line x1="30" y1="-38" x2="30" y2="-2"/></g><path d="M-30 -20L-6 -20L-14 -46L18 -48L30 -20M-6 -20L18 -48M18 -48L22 -57L29 -57" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20 -48L-8 -48" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/><line x1="2" y1="-82" x2="-26" y2="-52" stroke="#7c4a1e" stroke-width="3"/><rect x="-36" y="-60" width="22" height="18" rx="3" fill="#b45309"/><path d="M-36 -60h22v7h-22z" fill="#92400e"/><line x1="-12" y1="-50" x2="2" y2="-84" stroke="#0b63f6" stroke-width="12" stroke-linecap="round"/><line x1="2" y1="-82" x2="24" y2="-59" stroke="#0b63f6" stroke-width="5" stroke-linecap="round"/><circle cx="25" cy="-58" r="3.5" fill="#f5c9a0"/><circle cx="6" cy="-96" r="8" fill="#f5c9a0"/><path d="M-2 -98 a8 8 0 0 1 16 0 z" fill="#f97316"/><line class="pedal" x1="-12" y1="-50" x2="-4" y2="-22" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/></g></g>';
+var ENV='<g id="dvEnv"><g id="dvPaper" class="fb"><rect x="-70" y="-80" width="140" height="160" rx="6" fill="#fff" stroke="#f97316" stroke-width="3"/><g id="dvLines"><rect x="-50" y="-58" width="70" height="8" rx="4" fill="#f97316"/><rect x="-50" y="-36" width="100" height="5" rx="2" fill="#cbd5e1"/><rect x="-50" y="-22" width="100" height="5" rx="2" fill="#cbd5e1"/><rect x="-50" y="-8" width="80" height="5" rx="2" fill="#cbd5e1"/><rect x="-50" y="14" width="100" height="5" rx="2" fill="#cbd5e1"/><rect x="-50" y="28" width="60" height="5" rx="2" fill="#cbd5e1"/></g></g><g id="dvEnvBody"><rect x="-70" y="-44" width="140" height="88" rx="6" fill="#fde9bf" stroke="#d28b0f" stroke-width="3"/><path d="M-70 44L0 -2L70 44" fill="none" stroke="#d28b0f" stroke-width="2"/></g><polygon id="dvFlap" class="fb" points="-70,-44 70,-44 0,6" fill="#fbbf24" stroke="#d28b0f" stroke-width="3" stroke-linejoin="round"/><g id="dvSeal" class="fb"><circle cx="0" cy="6" r="12" fill="#dc2626" stroke="#991b1b" stroke-width="2"/><circle cx="0" cy="6" r="6" fill="none" stroke="#fecaca" stroke-width="1.5"/></g></g>';
+function build(){
+  root=document.createElement("div");root.id="dv";
+  root.setAttribute("role","dialog");root.setAttribute("aria-label","Order submitted");
+  root.innerHTML='<button id="dvSkip" type="button">Skip ›</button><svg id="dvScene" viewBox="0 0 560 420" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg"><rect x="-3000" y="352" width="6560" height="900" fill="#64748b"/><rect x="-3000" y="352" width="6560" height="10" fill="#94a3b8"/><g id="dvBg">'+world()+'</g>'+SHOP+RIDER+ENV+'</svg><div id="dvFinal"><div class="t"><h2>Congratulations!</h2><p>Your order has been submitted.</p></div><div id="dvCoin"><svg viewBox="0 0 100 100"><polygon points="'+badge()+'" fill="#1d89ee" stroke="#1d89ee" stroke-width="2" stroke-linejoin="round"/><path id="dvTick" class="dvtick" d="M29 52L44 67L72 36" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="t"><p>Thanks for trusting Ubaid Gill Studio and this deal!</p></div><div class="t"><span id="dvOid"></span></div><div class="t dvbtns"><button class="btn blue" id="dvAgain" type="button">New Order</button><button class="btn ghost" id="dvShare" type="button">Share</button></div></div>';
+  document.body.appendChild(root);
+  $("dvSkip").addEventListener("click",finish);
+  $("dvAgain").addEventListener("click",function(){location.href=location.pathname+"#order";location.reload()});
+  $("dvShare").addEventListener("click",function(){
+    var b=this,d={title:"Ubaid Gill Studio",text:"Premium graphic design",url:location.href.split("#")[0]};
+    if(navigator.share){navigator.share(d).catch(function(){})}
+    else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){b.textContent="Link copied"})}
+  });
+}
+function dot(x,y,c,sz,life,dx,dy){
+  var d=document.createElement("div");d.className="dvp";
+  d.style.cssText="width:"+sz+"px;height:"+sz+"px;margin:-"+sz/2+"px 0 0 -"+sz/2+"px;background:"+c+";box-shadow:0 0 8px "+c;
+  document.body.appendChild(d);
+  d.animate([{transform:`translate(${x}px,${y}px) scale(1)`,opacity:1},{transform:`translate(${x+dx*.8}px,${y+dy*.8}px) scale(1)`,opacity:1,offset:.55},{transform:`translate(${x+dx}px,${y+dy+60}px) scale(.3)`,opacity:0}],{duration:life,easing:"cubic-bezier(.2,.7,.3,1)",fill:"forwards"});
+  setTimeout(function(){d.remove()},life+50);
+}
+function burst(x,y){
+  var k=Math.min(1.3,Math.max(.7,innerWidth/700)),i,a,r;
+  var ring=document.createElement("div");ring.className="dvp";
+  ring.style.cssText="width:20px;height:20px;margin:-10px 0 0 -10px;border:3px solid #fff";
+  document.body.appendChild(ring);
+  ring.animate([{transform:`translate(${x}px,${y}px) scale(.3)`,opacity:.9},{transform:`translate(${x}px,${y}px) scale(6)`,opacity:0}],{duration:700,easing:"ease-out",fill:"forwards"});
+  setTimeout(function(){ring.remove()},800);
+  for(i=0;i<49;i++){a=i/49*6.2832+Math.random()*.3;r=(90+Math.random()*130)*k;dot(x,y,COLS[i%7],7,1300+Math.random()*600,Math.cos(a)*r,Math.sin(a)*r)}
+}
+function finish(){
+  timers.forEach(clearTimeout);timers=[];clearInterval(sparkT);
+  document.querySelectorAll(".dvp").forEach(function(n){n.remove()});
+  var scene=$("dvScene"),coin=$("dvCoin"),tick=$("dvTick");
+  scene.classList.remove("riding");
+  if(ba)ba.finish();else $("dvBg").style.transform="translateX(-760px)";
+  if(sa)sa.finish();else $("dvShop").style.transform="translateX(0)";
+  $("dvEnv").style.opacity=0;
+  coin.style.transition="none";coin.style.opacity=1;coin.style.transform="scale(1)";
+  tick.style.transition="none";tick.style.strokeDashoffset=0;
+  scene.style.opacity=".22";
+  $("dvSkip").style.display="none";
+  $("dvFinal").classList.add("show");
+}
+function play(oid){
+  if(started)return;started=true;
+  if(!root)build();
+  $("dvOid").textContent="Order ID: "+oid;
+  var m=$("modal");if(m)m.className="modal";
+  document.body.style.overflow="hidden";
+  root.classList.add("on");void root.offsetWidth;root.classList.add("vis");
+  if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){finish();return}
+  var env=$("dvEnv"),paper=$("dvPaper"),lines=$("dvLines"),body=$("dvEnvBody"),flap=$("dvFlap"),seal=$("dvSeal"),scene=$("dvScene"),box=$("dvBox"),coin=$("dvCoin"),tick=$("dvTick"),ex=0,ey=0;
+  // 1. paper appears, folds, becomes an envelope, gets sealed
+  at(0,function(){paper.style.transition="opacity .5s,transform .5s";paper.style.opacity=1;paper.style.transform="scale(1)"});
+  at(800,function(){paper.style.transition="transform .6s ease-in-out";paper.style.transform="scaleY(.55)";lines.style.transition="opacity .3s";lines.style.opacity=0});
+  at(1450,function(){paper.style.transition="none";paper.style.opacity=0;body.style.opacity=1;flap.style.opacity=1});
+  at(1500,function(){flap.style.transition="transform .5s ease-in-out";flap.style.transform="scaleY(1)"});
+  at(2050,function(){seal.style.transition="transform .45s cubic-bezier(.34,1.56,.64,1)";seal.style.transform="scale(1)"});
+  // 2. letter goes into the shoulder bag
+  at(2800,function(){env.style.transition="transform .9s cubic-bezier(.5,0,.3,1)";env.style.transform="translate(39px,303px) scale(.22)"});
+  at(3750,function(){env.style.transition="opacity .25s";env.style.opacity=0});
+  // 3. cycling: trees and buildings pass by, then the shop arrives
+  at(3900,function(){
+    scene.classList.add("riding");
+    ba=$("dvBg").animate([{transform:"translateX(0)"},{transform:"translateX(-760px)"}],{duration:4500,easing:"linear",fill:"forwards"});
+    sa=$("dvShop").animate([{transform:"translateX(700px)"},{transform:"translateX(0)"}],{duration:4500,easing:"cubic-bezier(.25,.6,.35,1)",fill:"forwards"});
+  });
+  at(8450,function(){scene.classList.remove("riding")});
+  // 4. letter goes into the Submit Order box
+  at(8600,function(){
+    env.style.transition="none";env.style.transform="translate(87px,295px) scale(.22)";env.style.opacity=1;void env.getBoundingClientRect();
+    env.style.transition="transform .8s cubic-bezier(.5,0,.3,1),opacity .25s .55s";env.style.transform="translate(148px,326px) scale(.1)";env.style.opacity=0;
+  });
+  at(9500,function(){box.classList.add("blink")});
+  // 5. flare rises from the shop roof
+  at(9900,function(){
+    var r=$("dvRoof").getBoundingClientRect(),c=coin.getBoundingClientRect(),sx=r.left+r.width/2,sy=r.top;
+    ex=c.left+c.width/2;ey=c.top+c.height/2;
+    var rk=document.createElement("div");rk.className="dvp";
+    rk.style.cssText="width:5px;height:20px;margin:-10px 0 0 -2px;border-radius:3px;background:linear-gradient(#fff,#f97316);box-shadow:0 0 12px 4px rgba(251,146,60,.8)";
+    document.body.appendChild(rk);
+    rk.animate([{transform:`translate(${sx}px,${sy}px)`},{transform:`translate(${ex}px,${ey}px)`}],{duration:900,easing:"cubic-bezier(.3,.6,.4,1)",fill:"forwards"});
+    setTimeout(function(){rk.remove()},950);
+    var t0=performance.now();
+    sparkT=setInterval(function(){var p=Math.min(1,(performance.now()-t0)/900);dot(sx+(ex-sx)*p,sy+(ey-sy)*p,"#fb923c",4,500,(Math.random()-.5)*24,30+Math.random()*30)},45);
+    setTimeout(function(){clearInterval(sparkT)},900);
+  });
+  // 6. seven-colour burst, the blue badge comes out
+  at(10800,function(){
+    burst(ex,ey);
+    coin.style.transition="transform .5s cubic-bezier(.34,1.56,.64,1),opacity .2s";coin.style.opacity=1;coin.style.transform="scale(1)";
+  });
+  // 7. horizontal spin, stops, tick appears
+  at(11500,function(){
+    coin.querySelector("svg").animate([{transform:"scaleX(1)"},{transform:"scaleX(.04)",offset:.125},{transform:"scaleX(-1)",offset:.25},{transform:"scaleX(.04)",offset:.375},{transform:"scaleX(1)",offset:.5},{transform:"scaleX(.04)",offset:.625},{transform:"scaleX(-1)",offset:.75},{transform:"scaleX(.04)",offset:.875},{transform:"scaleX(1)"}],{duration:1500,easing:"ease-in-out"});
+  });
+  at(13100,function(){tick.style.transition="stroke-dashoffset .6s ease";tick.style.strokeDashoffset=0});
+  // 8. messages
+  at(13800,finish);
+}
+window.deliveryPlay=play;
 })();
 </script>
 </body>
