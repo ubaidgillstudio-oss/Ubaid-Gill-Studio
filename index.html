@@ -49,6 +49,8 @@ textarea{resize:vertical;min-height:140px}
 .cc{font-size:.82rem;color:var(--m);text-align:right;margin-top:4px}
 .em{color:var(--err);font-size:.85rem;margin-top:4px;display:none}.em.show{display:block}
 .fa{display:flex;gap:10px;flex-wrap:wrap}.fa .btn{flex:1 1 auto}
+#loginHint{color:#991b1b;font-weight:600;font-size:.9rem;margin:10px 0 0;padding:12px 14px;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;text-align:center}
+#loginHint.ok{color:#065f46;background:#ecfdf5;border-color:#a7f3d0}
 footer{background:#0f172a;color:#e2e8f0;padding:28px 5%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
 footer a:hover{color:#fdba74}.fl{display:flex;gap:14px;flex-wrap:wrap;font-size:.92rem}
 #toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,100px);background:#0f172a;color:#fff;padding:12px 20px;border-radius:10px;font-weight:600;opacity:0;transition:.3s;z-index:100000;pointer-events:none}
@@ -66,7 +68,7 @@ footer a:hover{color:#fdba74}.fl{display:flex;gap:14px;flex-wrap:wrap;font-size:
 <body>
 <header>
   <div class="logo"><img src="Ulogo.png" alt="Ubaid Gill Studio logo" width="42" height="42" onerror="this.style.display='none'"><span>UBAID GILL <b>STUDIO</b></span></div>
-  <nav><a href="#home">Home</a><a href="#services">Services</a><a href="#order">Order Now</a><button class="btn" id="shareNav" type="button">🔗 Share</button></nav>
+  <nav><a href="#home">Home</a><a href="#services">Services</a><a href="#order">Order Now</a><button class="btn" id="shareNav" type="button">🔗 Share</button><button class="btn ghost" id="loginBtn" type="button">Login</button><button class="btn" id="signupBtn" type="button">Sign Up</button><button class="btn ghost" id="logoutBtn" type="button" style="display:none">Logout</button></nav>
 </header>
 <main>
 <section class="hero" id="home">
@@ -109,6 +111,7 @@ footer a:hover{color:#fdba74}.fl{display:flex;gap:14px;flex-wrap:wrap;font-size:
         <div><label for="email">Email <span class="req">*</span></label><input id="email" name="email" type="email" maxlength="120" placeholder="you@example.com"><div class="em" id="e-email">Please enter a valid email.</div></div>
       </div>
       <label for="phone">WhatsApp / phone (optional)</label><input id="phone" name="phone" maxlength="30" placeholder="+92 300 1234567">
+      <div class="em" id="e-phone">Please enter a valid phone number (7-30 digits).</div>
     </fieldset>
     <fieldset>
       <legend>Project details</legend>
@@ -118,10 +121,11 @@ footer a:hover{color:#fdba74}.fl{display:flex;gap:14px;flex-wrap:wrap;font-size:
       <div class="em" id="e-desc">Please describe your project (at least 20 characters).</div>
       <div class="g2">
         <div><label for="deadline">Deadline (optional)</label><input id="deadline" name="deadline" type="date"></div>
-        <div><label for="ref">Reference link (optional)</label><input id="ref" name="reference" type="url" maxlength="300" placeholder="Google Drive / Pinterest link"></div>
+        <div><label for="ref">Reference link (optional)</label><input id="ref" name="reference" type="url" maxlength="300" placeholder="Google Drive / Pinterest link"><div class="em" id="e-ref">Please enter a valid URL (https://...).</div></div>
       </div>
     </fieldset>
     <div class="fa"><button class="btn" type="submit">Review Order</button><button class="btn ghost" type="reset">Clear</button></div>
+    <p id="loginHint">🔒 You must <b>Login</b> or <b>Sign Up</b> before submitting your order.</p>
   </form>
 </div></div>
 </main>
@@ -138,6 +142,22 @@ footer a:hover{color:#fdba74}.fl{display:flex;gap:14px;flex-wrap:wrap;font-size:
     <p class="hint" style="margin:0 0 10px">Check everything before sending.</p>
     <div id="rv"></div>
     <div class="ma"><button class="btn ghost" id="edit" type="button">Edit</button><button class="btn blue" id="submit" type="button">Submit Order</button></div>
+    <p id="modalHint" style="color:#991b1b;font-size:.85rem;margin-top:10px;display:none;text-align:center">🔒 Please login to submit.</p>
+  </div>
+</div>
+<div class="modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="mc">
+    <h3 id="authTitle">Login</h3>
+    <div id="aNameWrap"><label for="aName">Full name</label><input id="aName" maxlength="80" placeholder="Your name"></div>
+    <label for="aEmail">Email</label><input id="aEmail" type="email" placeholder="you@example.com">
+    <label for="aPass">Password</label><input id="aPass" type="password" placeholder="At least 6 characters">
+    <div class="em" id="authMsg"></div>
+    <div class="ma">
+      <button class="btn" id="authGo" type="button">Login</button>
+      <button class="btn ghost" id="authGoogle" type="button">Continue with Google</button>
+    </div>
+    <p style="text-align:center"><a href="#" id="authSwitch" style="color:#ea580c;font-weight:600"></a></p>
+    <button class="btn ghost" id="authClose" type="button" style="width:100%">Close</button>
   </div>
 </div>
 <div id="toast" role="status"></div>
@@ -149,7 +169,27 @@ var WEB3FORMS_KEY="a76f080d-e136-4536-bd39-76e9f5fa9895";
 var $=function(i){return document.getElementById(i)};
 var f=$("f"),svc=$("service"),desc=$("desc"),modal=$("modal");
 $("yr").textContent=new Date().getFullYear();
-function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove("show")},2400)}
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove("show")},3000)}
+
+/* ---------- Rate limit (client-side, 10 min / max 3 orders) ---------- */
+var RL_KEY="ugs_submit_ts", RL_WINDOW=10*60*1000, RL_MAX=3;
+function rateCheck(){
+  try{
+    var ts=JSON.parse(localStorage.getItem(RL_KEY)||"[]");
+    var now=Date.now();
+    ts=ts.filter(function(t){return now-t<RL_WINDOW});
+    return ts.length<RL_MAX;
+  }catch(e){return true}
+}
+function rateRecord(){
+  try{
+    var ts=JSON.parse(localStorage.getItem(RL_KEY)||"[]");
+    var now=Date.now();
+    ts=ts.filter(function(t){return now-t<RL_WINDOW});
+    ts.push(now);
+    localStorage.setItem(RL_KEY,JSON.stringify(ts));
+  }catch(e){}
+}
 
 var cards=document.querySelectorAll(".svc");
 function pick(v){cards.forEach(function(c){var s=c.dataset.svc===v;c.classList.toggle("sel",s);c.setAttribute("aria-checked",s)});svc.value=v}
@@ -158,7 +198,12 @@ cards.forEach(function(c){
   c.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();c.click()}});
 });
 svc.addEventListener("change",function(){pick(svc.value)});
-f.addEventListener("reset",function(){pick("");$("cc").textContent="0 / 1500";document.querySelectorAll(".invalid").forEach(function(x){x.classList.remove("invalid")});document.querySelectorAll(".em").forEach(function(x){x.classList.remove("show")})});
+f.addEventListener("reset",function(){
+  pick("");
+  $("cc").textContent="0 / 1500";
+  document.querySelectorAll(".invalid").forEach(function(x){x.classList.remove("invalid")});
+  document.querySelectorAll(".em").forEach(function(x){x.classList.remove("show")});
+});
 desc.addEventListener("input",function(){$("cc").textContent=desc.value.length+" / 1500"});
 
 function share(){
@@ -170,14 +215,50 @@ function share(){
 ["shareNav","shareFoot"].forEach(function(i){$(i).addEventListener("click",share)});
 
 function bad(id,e,on){$(id).classList.toggle("invalid",on);$(e).classList.toggle("show",on);return on}
+
+/* ---------- Stronger validation ---------- */
 function validate(){
-  var n=f.name.value.trim(),e=f.email.value.trim(),d=desc.value.trim();
-  var errs=[bad("service","e-service",!svc.value),bad("name","e-name",n.length<2),
-    bad("email","e-email",!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)),bad("desc","e-desc",d.length<20)];
+  var n=f.name.value.trim(),
+      e=f.email.value.trim(),
+      p=f.phone.value.trim(),
+      r=f.reference.value.trim(),
+      d=desc.value.trim();
+
+  // name: 2-80 chars, at least one letter, no all-digits
+  var nameOk = n.length>=2 && n.length<=80 && /[A-Za-z\u0600-\u06FF]/.test(n);
+
+  // email standard
+  var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e) && e.length<=120;
+
+  // phone: optional, but if provided must be valid
+  var phoneOk = !p || (/^[\d\s\+\-\(\)]{7,30}$/.test(p) && /\d{7,}/.test(p.replace(/[\s\-\(\)\+]/g,"")));
+
+  // reference: optional, if provided must be http(s) URL
+  var refOk = !r || /^https?:\/\/[^\s]{3,}$/i.test(r);
+
+  // description: 20-1500, not too many URLs (anti-spam)
+  var urlMatches = d.match(/https?:\/\//gi);
+  var descOk = d.length>=20 && d.length<=1500 && (!urlMatches || urlMatches.length<=3);
+
+  var errs=[
+    bad("service","e-service",!svc.value),
+    bad("name","e-name",!nameOk),
+    bad("email","e-email",!emailOk),
+    bad("desc","e-desc",!descOk),
+    bad("phone","e-phone",!phoneOk),
+    bad("ref","e-ref",!refOk)
+  ];
+
+  var focusMap=[svc,f.name,f.email,desc,f.phone,f.reference];
   var i=errs.indexOf(true);
-  if(i>-1){[svc,f.name,f.email,desc][i].focus();return false}
+  if(i>-1){
+    try{focusMap[i].focus()}catch(x){}
+    if(!descOk && urlMatches && urlMatches.length>3) toast("Too many links in description. Please reduce them.");
+    return false;
+  }
   return true;
 }
+
 function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
 function data(){return{service:svc.value,name:f.name.value.trim(),email:f.email.value.trim(),phone:f.phone.value.trim(),description:desc.value.trim(),deadline:f.deadline.value,reference:f.reference.value.trim()}}
 
@@ -187,9 +268,13 @@ f.addEventListener("submit",function(e){
   if(!validate())return;
   var d=data(),rows=[["Service",d.service],["Name",d.name],["Email",d.email],["Phone",d.phone],["Deadline",d.deadline],["Reference",d.reference],["Idea",d.description]];
   $("rv").innerHTML=rows.filter(function(r){return r[1]}).map(function(r){return '<div class="rr"><div class="k">'+r[0]+'</div><div class="v">'+esc(r[1])+'</div></div>'}).join("");
+  // show login warning inside modal
+  var mh=$("modalHint");
+  if(mh) mh.style.display = window.currentUser ? "none" : "block";
   modal.className="modal show";
   $("submit").disabled=false;$("submit").textContent="Submit Order";$("submit").focus();
 });
+
 $("edit").addEventListener("click",function(){if(!$("submit").disabled)modal.classList.remove("show")});
 modal.addEventListener("click",function(e){if(e.target===modal&&!$("submit").disabled)modal.classList.remove("show")});
 
@@ -198,13 +283,47 @@ function send(d){
   return fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(body)})
     .then(function(r){return r.json()}).then(function(j){return !!j.success}).catch(function(){return false});
 }
+
+/* ---------- Submit with LOGIN GATE + RATE LIMIT ---------- */
 $("submit").addEventListener("click",async function(){
   var btn=this;if(btn.disabled)return;
+
+  // 1) Firebase must be ready
+  if(window.firebaseReady === false){
+    toast("⏳ Login service still loading. Please wait a moment.");
+    return;
+  }
+
+  // 2) Must be logged in
+  if(!window.currentUser){
+    window.__pendingSubmit = true;
+    modal.classList.remove("show");
+    var lb=document.getElementById("loginBtn");
+    if(lb) lb.click();
+    toast("🔒 Please login or sign up to submit your order.");
+    return;
+  }
+
+  // 3) Client-side rate limit
+  if(!rateCheck()){
+    toast("⏳ Too many submissions. Please wait 10 minutes.");
+    return;
+  }
+
   btn.disabled=true;btn.textContent="Sending...";
   var d=data(),oid="UG-"+Date.now().toString(36).toUpperCase().slice(-6);
   d.order_id=oid;
+
   var ok=await send(d);
-  if(!ok){btn.disabled=false;btn.textContent="Submit Order";toast("Could not send. Check your internet and try again.");return}
+  if(ok && window.saveOrder){
+    try{ await window.saveOrder(d); }catch(e){ console.warn("Save order failed", e); }
+  }
+  if(!ok){
+    btn.disabled=false;btn.textContent="Submit Order";
+    toast("Could not send. Check your internet and try again.");
+    return;
+  }
+  rateRecord();
   btn.textContent="Submit Order";
   deliveryPlay(oid);
 });
@@ -317,29 +436,24 @@ function play(oid){
   root.classList.add("on");void root.offsetWidth;root.classList.add("vis");
   if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){finish();return}
   var env=$("dvEnv"),paper=$("dvPaper"),lines=$("dvLines"),body=$("dvEnvBody"),flap=$("dvFlap"),seal=$("dvSeal"),scene=$("dvScene"),box=$("dvBox"),coin=$("dvCoin"),tick=$("dvTick"),ex=0,ey=0;
-  // 1. paper appears, folds, becomes an envelope, gets sealed
   at(0,function(){paper.style.transition="opacity .5s,transform .5s";paper.style.opacity=1;paper.style.transform="scale(1)"});
   at(800,function(){paper.style.transition="transform .6s ease-in-out";paper.style.transform="scaleY(.55)";lines.style.transition="opacity .3s";lines.style.opacity=0});
   at(1450,function(){paper.style.transition="none";paper.style.opacity=0;body.style.opacity=1;flap.style.opacity=1});
   at(1500,function(){flap.style.transition="transform .5s ease-in-out";flap.style.transform="scaleY(1)"});
   at(2050,function(){seal.style.transition="transform .45s cubic-bezier(.34,1.56,.64,1)";seal.style.transform="scale(1)"});
-  // 2. letter goes into the shoulder bag
   at(2800,function(){env.style.transition="transform .9s cubic-bezier(.5,0,.3,1)";env.style.transform="translate(39px,303px) scale(.22)"});
   at(3750,function(){env.style.transition="opacity .25s";env.style.opacity=0});
-  // 3. cycling: trees and buildings pass by, then the shop arrives
   at(3900,function(){
     scene.classList.add("riding");
     ba=$("dvBg").animate([{transform:"translateX(0)"},{transform:"translateX(-760px)"}],{duration:4500,easing:"linear",fill:"forwards"});
     sa=$("dvShop").animate([{transform:"translateX(700px)"},{transform:"translateX(0)"}],{duration:4500,easing:"cubic-bezier(.25,.6,.35,1)",fill:"forwards"});
   });
   at(8450,function(){scene.classList.remove("riding")});
-  // 4. letter goes into the Submit Order box
   at(8600,function(){
     env.style.transition="none";env.style.transform="translate(87px,295px) scale(.22)";env.style.opacity=1;void env.getBoundingClientRect();
     env.style.transition="transform .8s cubic-bezier(.5,0,.3,1),opacity .25s .55s";env.style.transform="translate(148px,326px) scale(.1)";env.style.opacity=0;
   });
   at(9500,function(){box.classList.add("blink")});
-  // 5. flare rises from the shop roof
   at(9900,function(){
     var r=$("dvRoof").getBoundingClientRect(),c=coin.getBoundingClientRect(),sx=r.left+r.width/2,sy=r.top;
     ex=c.left+c.width/2;ey=c.top+c.height/2;
@@ -352,21 +466,187 @@ function play(oid){
     sparkT=setInterval(function(){var p=Math.min(1,(performance.now()-t0)/900);dot(sx+(ex-sx)*p,sy+(ey-sy)*p,"#fb923c",4,500,(Math.random()-.5)*24,30+Math.random()*30)},45);
     setTimeout(function(){clearInterval(sparkT)},900);
   });
-  // 6. seven-colour burst, the blue badge comes out
   at(10800,function(){
     burst(ex,ey);
     coin.style.transition="transform .5s cubic-bezier(.34,1.56,.64,1),opacity .2s";coin.style.opacity=1;coin.style.transform="scale(1)";
   });
-  // 7. horizontal spin, stops, tick appears
   at(11500,function(){
     coin.querySelector("svg").animate([{transform:"scaleX(1)"},{transform:"scaleX(.04)",offset:.125},{transform:"scaleX(-1)",offset:.25},{transform:"scaleX(.04)",offset:.375},{transform:"scaleX(1)",offset:.5},{transform:"scaleX(.04)",offset:.625},{transform:"scaleX(-1)",offset:.75},{transform:"scaleX(.04)",offset:.875},{transform:"scaleX(1)"}],{duration:1500,easing:"ease-in-out"});
   });
   at(13100,function(){tick.style.transition="stroke-dashoffset .6s ease";tick.style.strokeDashoffset=0});
-  // 8. messages
   at(13800,finish);
 }
 window.deliveryPlay=play;
 })();
 </script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+import { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
+
+// --- Firebase init state flags used by the order form ---
+window.firebaseReady = false;
+window.currentUser = null;
+window.__pendingSubmit = false;
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBihNyj5uNuLRHDtIrf4VLLMATRcVxGwT8",
+  authDomain: "ubaid-gill-studio.firebaseapp.com",
+  projectId: "ubaid-gill-studio",
+  storageBucket: "ubaid-gill-studio.firebasestorage.app",
+  messagingSenderId: "984380598827",
+  appId: "1:984380598827:web:47fec10e0b7902d50f186e"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const $ = id => document.getElementById(id);
+const modal = $("authModal");
+let mode = "login";
+
+function setMode(m){
+  mode = m;
+  $("authTitle").textContent = m === "signup" ? "Create account" : "Login";
+  $("authGo").textContent = m === "signup" ? "Sign Up" : "Login";
+  $("aNameWrap").style.display = m === "signup" ? "block" : "none";
+  $("authSwitch").textContent = m === "signup" ? "Already have an account? Login" : "New here? Sign Up";
+  $("authMsg").classList.remove("show");
+}
+function openAuth(m){ setMode(m); modal.classList.add("show"); }
+function showErr(t){ const e = $("authMsg"); e.textContent = t; e.classList.add("show"); }
+
+$("loginBtn").onclick = () => openAuth("login");
+$("signupBtn").onclick = () => openAuth("signup");
+$("logoutBtn").onclick = () => signOut(auth);
+$("authClose").onclick = () => { modal.classList.remove("show"); window.__pendingSubmit = false; };
+$("authSwitch").onclick = e => { e.preventDefault(); setMode(mode === "signup" ? "login" : "signup"); };
+
+$("authGo").onclick = async () => {
+  const email = $("aEmail").value.trim(), pass = $("aPass").value;
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { showErr("Please enter a valid email."); return; }
+  if (!pass || pass.length < 6) { showErr("Password must be at least 6 characters."); return; }
+  $("authGo").disabled = true;
+  try {
+    if (mode === "signup") {
+      const name = $("aName").value.trim();
+      if (!name || name.length < 2) { showErr("Please enter your full name."); $("authGo").disabled = false; return; }
+      const cred = await createUserWithEmailAndPassword(auth, email, pass);
+      await updateProfile(cred.user, { displayName: name });
+      await setDoc(doc(db, "users", cred.user.uid), { name, email, createdAt: serverTimestamp() });
+    } else {
+      await signInWithEmailAndPassword(auth, email, pass);
+    }
+    modal.classList.remove("show");
+  } catch (e) {
+    const m = {
+      "auth/invalid-credential": "Wrong email or password.",
+      "auth/invalid-login-credentials": "Wrong email or password.",
+      "auth/email-already-in-use": "This email is already registered.",
+      "auth/weak-password": "Password must be at least 6 characters.",
+      "auth/invalid-email": "Please enter a valid email.",
+      "auth/too-many-requests": "Too many attempts. Please wait a few minutes."
+    };
+    showErr(m[e.code] || "Something went wrong. Try again.");
+  } finally {
+    $("authGo").disabled = false;
+  }
+};
+
+$("authGoogle").onclick = async () => {
+  try {
+    const r = await signInWithPopup(auth, new GoogleAuthProvider());
+    await setDoc(doc(db, "users", r.user.uid), { name: r.user.displayName, email: r.user.email }, { merge: true });
+    modal.classList.remove("show");
+  } catch (e) { showErr("Google login failed. Please try again."); }
+};
+
+onAuthStateChanged(auth, user => {
+  window.currentUser = user;
+  window.firebaseReady = true;
+
+  $("loginBtn").style.display = user ? "none" : "";
+  $("signupBtn").style.display = user ? "none" : "";
+  $("logoutBtn").style.display = user ? "" : "none";
+
+  // update hint under form
+  const hint = $("loginHint");
+  if (hint) {
+    if (user) {
+      hint.textContent = "✅ Logged in as " + (user.displayName || user.email) + ". You can submit your order now.";
+      hint.classList.add("ok");
+    } else {
+      hint.innerHTML = "🔒 You must <b>Login</b> or <b>Sign Up</b> before submitting your order.";
+      hint.classList.remove("ok");
+    }
+  }
+  // update hint inside review modal
+  const mh = $("modalHint");
+  if (mh) mh.style.display = user ? "none" : "block";
+
+  if (user) {
+    if (!$("name").value) $("name").value = user.displayName || "";
+    if (!$("email").value) $("email").value = user.email || "";
+  }
+
+  // If user clicked Submit while logged out → auto reopen review after login
+  if (user && window.__pendingSubmit) {
+    window.__pendingSubmit = false;
+    const m = document.getElementById("modal");
+    const sub = document.getElementById("submit");
+    if (m && sub) { m.classList.add("show"); sub.focus(); }
+  }
+});
+
+// Save order to Firestore (only for logged-in user)
+window.saveOrder = async d => {
+  const u = auth.currentUser;
+  if (!u) { throw new Error("Not authenticated"); }
+  await addDoc(collection(db, "orders"), {
+    ...d,
+    uid: u.uid,
+    userEmail: u.email || "",
+    createdAt: serverTimestamp()
+  });
+};
+
+window.firebaseReady = true;
+</script>
+<!--
+=====================================================================
+  🔥 FIREBASE FIRESTORE SECURITY RULES — Paste in Firebase Console
+  Console → Firestore Database → Rules → paste → Publish
+=====================================================================
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Users can only read/write their own profile
+    match /users/{uid} {
+      allow read:   if request.auth != null && request.auth.uid == uid;
+      allow create: if request.auth != null && request.auth.uid == uid
+                    && request.resource.data.email == request.auth.token.email;
+      allow update: if request.auth != null && request.auth.uid == uid;
+      allow delete: if false;
+    }
+
+    // Orders: only authenticated users can create; only owner can read
+    match /orders/{orderId} {
+      allow create: if request.auth != null
+                    && request.resource.data.uid == request.auth.uid
+                    && request.resource.data.name is string
+                    && request.resource.data.email is string
+                    && request.resource.data.service is string
+                    && request.resource.data.description is string
+                    && request.resource.data.description.size() >= 20
+                    && request.resource.data.description.size() <= 1500
+                    && request.resource.data.createdAt == request.time;
+      allow read:   if request.auth != null && resource.data.uid == request.auth.uid;
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}
+=====================================================================
+-->
 </body>
 </html>
