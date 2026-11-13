@@ -91,14 +91,11 @@ footer{background:var(--navy);color:#cfe0ff;padding:36px 0 20px;margin-top:20px}
 <label for="ip">Password</label><input id="ip" type="password" autocomplete="current-password" required>
 <button class="btn gg">Sign In</button><button type="button" class="btn o gg gog">Continue with Google</button>
 <p>New here? <button type="button" class="lk" id="g2u">Create Account</button></p></form>
-<form id="gs" novalidate hidden><h3 style="margin-bottom:4px">Choose your order code</h3><p style="color:var(--mut);margin-top:0">A secret nickname you will enter on every order. Keep it private.</p>
-<label for="sc1">Order code (min 4 characters)</label><input id="sc1" type="password" minlength="4" autocomplete="off" required>
-<button class="btn gg">Save Code</button></form>
 <p class="msg" id="gm" role="alert"></p>
 <p id="gdev" hidden style="color:var(--mut)">Setup required: add your Firebase settings in CONFIG to enable Sign Up, Sign In and Google login.<br><button type="button" class="lk" id="gpv">Preview site (setup mode)</button></p>
 </div></div>
 <header><div class="wrap nav">
-<a class="brand" href="#home"><img src="Ulogo.png" alt="" onerror="this.style.display='none'">Ubaid Gill Studio</a>
+<a class="brand" href="#home"><img src="logo.png" alt="" onerror="this.style.display='none'">Ubaid Gill Studio</a>
 <button id="mb" aria-label="Menu" aria-expanded="false">☰</button>
 <nav aria-label="Main"><ul id="menu">
 <li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li>
@@ -110,7 +107,7 @@ footer{background:var(--navy);color:#cfe0ff;padding:36px 0 20px;margin-top:20px}
 <div><h1>Hi, I am <span>Ubaid Gill.</span><br>I am a Freelancer.</h1>
 <p>You can get professional and creative services for your business and personal needs.</p>
 <div class="acts"><a class="btn" href="#services">Place an Order</a><a class="btn o" href="#portfolio">View Portfolio</a></div></div>
-<div class="pw"><div class="ph"><span>Add your photo<br><small>assets/ubaid.jpg</small></span><img src="ubaid.jpeg" alt="Ubaid Gill" onerror="this.remove()"></div></div>
+<div class="pw"><div class="ph"><span>Add your photo<br><small>ubed.jpeg</small></span><img src="assets/ubaid.jpg" alt="Ubaid Gill" onerror="this.remove()"></div></div>
 </div></section>
 
 <section id="services"><div class="wrap">
@@ -127,10 +124,10 @@ footer{background:var(--navy);color:#cfe0ff;padding:36px 0 20px;margin-top:20px}
 <input id="ec" class="full" style="margin-top:6px" placeholder="your-company.com" hidden aria-label="Custom email domain">
 <p class="msg" id="ep">Full address: <b id="efull">—</b></p></div>
 <div class="full"><label for="wa">WhatsApp number <small>(optional)</small></label><input id="wa" type="tel" inputmode="tel" placeholder="+92 300 1234567"></div>
-<div class="full otp"><label class="req" for="oc">Your order code</label><input id="oc" type="password" autocomplete="off" required><p class="msg"><button type="button" class="lk" id="fg">Forgot code?</button></p><p class="msg" id="om" role="status"></p></div></div>
+</div>
 <p class="msg bad" id="fm" role="alert"></p>
 <button class="btn" id="sub" type="submit" style="width:100%;margin-top:8px">Submit Order</button>
-<p class="msg" style="text-align:center">You will be asked for your order code when you submit.</p>
+<p class="msg" style="text-align:center">You must be signed in (with a verified email) to submit.</p>
 </form></div></section>
 
 <section id="portfolio" style="background:var(--sky)"><div class="wrap">
@@ -169,7 +166,6 @@ footer{background:var(--navy);color:#cfe0ff;padding:36px 0 20px;margin-top:20px}
 const CONFIG={
   web3formsKey:"",            // Web3Forms access key (public key; get from web3forms.com)
   firebase:{apiKey:"AIzaSyBihNyj5uNuLRHDtIrf4VLLMATRcVxGwT8",authDomain:"ubaid-gill-studio.firebaseapp.com",projectId:"ubaid-gill-studio",appId:"1:984380598827:web:47fec10e0b7902d50f186e"},  // Firebase web app settings (Auth: Email/Password + Google)
-  codeUrl:"",                 // secure backend (Cloud Function): POST {action:status|set|check|reset, code} + Bearer ID token -> {ok:true,hasCode?}
   ads:{enabled:false,                 // set true to show the ad box; false = nothing is shown
        adsenseClient:"",adsenseSlot:"", // Google AdSense: "ca-pub-XXXX" and slot id
        customImage:"",customLink:""},   // or your own banner: image path + link
@@ -241,22 +237,19 @@ function email(){const l=$("#el").value.trim();if(l.includes("@"))return l;const
 const emailOk=e=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
 function emailUpd(){$("#ec").hidden=$("#ed").value!=="Other";$("#efull").textContent=email()||"—"}
 ["el","ed","ec"].forEach(i=>$("#"+i).addEventListener("input",emailUpd));$("#ed").addEventListener("change",emailUpd);
-function setOtp(t,k){$("#om").textContent=t;$("#om").className="msg "+(k||"")}
-$("#fg").onclick=async()=>{if(!window.codeApi)return setOtp("Sign-in is not configured yet.","bad");
- try{await codeApi("reset");setOtp("We emailed you instructions to reset your order code.","ok")}catch{setOtp("Could not start the reset. Please try again.","bad")}};
 /* ===== SUBMIT (Web3Forms, only after verification) ===== */
 function newId(){const a="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",r=crypto.getRandomValues(new Uint8Array(6));return "UG-"+[...r].map(x=>a[x%a.length]).join("")}
 $("#of").onsubmit=async e=>{e.preventDefault();if(busy)return;const fm=$("#fm");fm.textContent="";
  if(!$("#of").checkValidity())return $("#of").reportValidity();
  const em=email();if(!emailOk(em))return fm.textContent="Enter a valid email address.";
  if(!CONFIG.web3formsKey)return fm.textContent="Order delivery is not configured yet (set CONFIG.web3formsKey).";
- busy=true;$("#sub").disabled=true;$("#sub").textContent="Checking code…";
- try{if(!window.codeApi)throw new Error("cfg");await codeApi("check",$("#oc").value)}
- catch(x){busy=false;$("#sub").disabled=false;$("#sub").textContent="Submit Order";return fm.textContent=x.message==="cfg"?"Please sign in first (account and code backend must be configured).":"Wrong order code, or email not verified."}
+ busy=true;$("#sub").disabled=true;$("#sub").textContent="Checking…";
+ const why=window.userOk?await userOk():"Account system is not set up yet.";
+ if(why){busy=false;$("#sub").disabled=false;$("#sub").textContent="Submit Order";return fm.textContent=why}
  $("#sub").textContent="Submitting…";
  orderId=orderId||newId();
  const wa=$("#wa").value.trim(),data={access_key:CONFIG.web3formsKey,subject:`New order ${orderId} – ${sub}`,from_name:"Ubaid Gill Studio Website",
-  order_id:orderId,category:cat,service:sub,email:em,whatsapp:wa||"(not given)",code_checked:"yes",...Object.fromEntries(Object.entries(vals).filter(([,v])=>v))};
+  order_id:orderId,category:cat,service:sub,email:em,whatsapp:wa||"(not given)",account_verified:"yes",...Object.fromEntries(Object.entries(vals).filter(([,v])=>v))};
  try{const r=await fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(data)});
   const d=await r.json();if(!d.success)throw 0;busy=false;$("#sub").textContent="Submit Order";play()}
  catch{busy=false;$("#sub").disabled=false;$("#sub").textContent="Submit Order";fm.textContent="Submission failed. Your details are kept – please try again."}};
@@ -277,7 +270,7 @@ function finish(){clear();scs.forEach(s=>s.classList.remove("on"));$("#sc").styl
 $("#sk").onclick=finish;
 $("#no").onclick=()=>{clear();fx.classList.remove("on");document.body.style.overflow="";scs[0].classList.remove("go");
  cat=sub=orderId=null;vals={};$("#of").reset();$("#of").hidden=true;$("#subs").hidden=true;$("#fields").innerHTML="";
- document.querySelectorAll(".card,.chip").forEach(x=>x.classList.remove("on"));$("#oc").value="";setOtp("");$("#sub").disabled=false;emailUpd();window.prefill&&prefill();$("#fm").textContent="";
+ document.querySelectorAll(".card,.chip").forEach(x=>x.classList.remove("on"));$("#sub").disabled=false;emailUpd();window.prefill&&prefill();$("#fm").textContent="";
  $("#services").scrollIntoView({behavior:"smooth"})};
 $("#sh").onclick=async()=>{const u=CONFIG.siteUrl||location.href;
  try{if(navigator.share)await navigator.share({title:"Ubaid Gill Studio",text:"Freelance services by Ubaid Gill",url:u});else{await navigator.clipboard.writeText(u);$("#shm").textContent="Link copied!"}}
@@ -286,27 +279,21 @@ $("#sh").onclick=async()=>{const u=CONFIG.siteUrl||location.href;
 <script type="module">
 const fb=CONFIG.firebase,gate=$("#gate");let U=null;
 const gm=(t,k)=>{$("#gm").textContent=t;$("#gm").className="msg "+(k||"")};
-const showP=p=>["gu","gi","gs"].forEach(x=>$("#"+x).hidden=x!==p);
+const showP=p=>["gu","gi"].forEach(x=>$("#"+x).hidden=x!==p);
 $("#g2i").onclick=()=>showP("gi");$("#g2u").onclick=()=>showP("gu");
-window.codeApi=async(action,code)=>{const t=U&&await U.getIdToken();if(!CONFIG.codeUrl||!t)throw new Error("cfg");
- const r=await fetch(CONFIG.codeUrl,{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+t},body:JSON.stringify({action,code})});
- const d=await r.json().catch(()=>({}));if(!r.ok||!d.ok)throw new Error("fail");return d};
+window.userOk=async()=>{if(!U)return"Please sign in first.";await U.reload();return U.emailVerified?"":"Please verify your email (we sent you a link), then try again."};
 window.prefill=()=>{if(!U||!U.email)return;const[l,d]=U.email.split("@"),s=$("#ed");$("#el").value=l;s.value=[...s.options].some(o=>o.value===d)?d:"Other";if(s.value==="Other")$("#ec").value=d;s.dispatchEvent(new Event("change"))};
 const em=x=>({"auth/email-already-in-use":"This email already has an account. Please sign in.","auth/weak-password":"Password is too weak.","auth/invalid-credential":"Wrong email or password.","auth/popup-closed-by-user":"Google sign-in was cancelled."}[x.code]||"Something went wrong. Please try again.");
 if(!(fb.apiKey&&fb.projectId)){gate.classList.add("on");showP("gi");$("#gdev").hidden=false;$("#gpv").onclick=()=>gate.classList.remove("on");
  document.querySelectorAll("#gate form").forEach(f=>f.onsubmit=e=>{e.preventDefault();gm("Not configured yet.","bad")});document.querySelectorAll(".gog").forEach(b=>b.onclick=()=>gm("Not configured yet.","bad"))}
 else{const B="https://www.gstatic.com/firebasejs/10.14.1/";
  const [{initializeApp},A]=await Promise.all([import(B+"firebase-app.js"),import(B+"firebase-auth.js")]);const auth=A.getAuth(initializeApp(fb));
- A.onAuthStateChanged(auth,async u=>{U=u;$("#acct").hidden=!u;
-  if(!u){gate.classList.add("on");showP("gu");return}
-  prefill();try{const d=await codeApi("status");if(d.hasCode)gate.classList.remove("on");else{gate.classList.add("on");showP("gs")}}catch{gate.classList.remove("on")}});
+ A.onAuthStateChanged(auth,u=>{U=u;$("#acct").hidden=!u;if(!u){gate.classList.add("on");showP("gu");return}prefill();gate.classList.remove("on")});
  $("#gu").onsubmit=async e=>{e.preventDefault();if(!e.target.checkValidity())return e.target.reportValidity();gm("Creating account…");
   try{const c=await A.createUserWithEmailAndPassword(auth,$("#ge").value.trim(),$("#gp").value);await A.updateProfile(c.user,{displayName:$("#gn").value.trim()});await A.sendEmailVerification(c.user);gm("Verification link sent to your email.","ok")}catch(x){gm(em(x),"bad")}};
  $("#gi").onsubmit=async e=>{e.preventDefault();if(!e.target.checkValidity())return e.target.reportValidity();gm("Signing in…");
   try{await A.signInWithEmailAndPassword(auth,$("#ie").value.trim(),$("#ip").value);gm("")}catch(x){gm(em(x),"bad")}};
  document.querySelectorAll(".gog").forEach(b=>b.onclick=async()=>{try{await A.signInWithPopup(auth,new A.GoogleAuthProvider());gm("")}catch(x){gm(em(x),"bad")}});
- $("#gs").onsubmit=async e=>{e.preventDefault();if(!e.target.checkValidity())return e.target.reportValidity();
-  try{await codeApi("set",$("#sc1").value);$("#sc1").value="";gate.classList.remove("on");gm("")}catch{gm("Could not save the code. Please try again.","bad")}};
  $("#outb").onclick=()=>A.signOut(auth)}
 </script>
 </body>
