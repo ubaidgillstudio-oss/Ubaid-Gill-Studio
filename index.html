@@ -2,651 +2,312 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ubaid Gill Studio — Premium Graphic Design</title>
-<meta name="description" content="Premium logos, posters, business cards, flyers and social media ads. Order directly from Ubaid Gill Studio.">
-<meta name="theme-color" content="#f97316">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ubaid Gill Studio – Freelance Services & Orders</title>
 <style>
-:root{--o:#f97316;--od:#ea580c;--os:#fff7ed;--b:#0b63f6;--t:#0f172a;--m:#475569;--l:#fde3cf;--err:#dc2626;--sh:0 10px 30px rgba(15,23,42,.08);--r:14px}
+:root{--b:#0b63f6;--bd:#0a3fa8;--sky:#e8f1ff;--ink:#0d1b3d;--mut:#5b6b8c;--bg:#fff;--line:#d9e4f7;--navy:#0a1f4d;--r:16px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--t);line-height:1.55}
-a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{font-family:inherit}
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:12px 5%;border-bottom:1px solid var(--l)}
-.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.2rem;white-space:nowrap}
-.logo img{width:42px;height:42px;object-fit:contain}.logo b{color:var(--o)}
-nav{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
-nav a{padding:8px 12px;border-radius:8px;font-weight:600;font-size:.95rem}nav a:hover{background:var(--os)}
-.btn{background:var(--o);color:#fff;padding:11px 20px;border-radius:10px;border:0;font-size:.98rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .15s,background .2s}
-.btn:hover{background:var(--od);transform:translateY(-1px)}.btn:disabled{opacity:.6;cursor:not-allowed}
-.ghost{background:#fff;color:var(--t);border:1.5px solid var(--l)}.ghost:hover{background:var(--os)}
-.blue{background:var(--b)}.blue:hover{background:#0847b8}
-:focus-visible{outline:3px solid var(--b);outline-offset:2px}
-.hero{display:flex;flex-wrap:wrap;align-items:center;gap:40px;padding:60px 5% 40px;max-width:1200px;margin:auto}
-.hero>div{flex:1 1 320px;min-width:0}
-.tag{color:var(--o);font-weight:800;letter-spacing:3px;font-size:.8rem}
-h1{font-size:clamp(1.9rem,4vw,2.7rem);margin:10px 0;line-height:1.15}h1 span{color:var(--o)}
-.hero p{color:var(--m);font-size:1.05rem;max-width:520px}
-.hero-img{width:100%;max-width:340px;border-radius:20px;box-shadow:14px 14px 0 var(--o);aspect-ratio:1;object-fit:cover;background:linear-gradient(135deg,#fed7aa,#fdba74)}
-.st{text-align:center;font-size:clamp(1.4rem,3vw,1.9rem);margin:40px 0 8px}
-.ss{text-align:center;color:var(--m);margin:0 auto 26px;max-width:640px;padding:0 5%}
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;padding:0 5% 20px;max-width:1200px;margin:auto}
-.svc{border:1.5px solid var(--l);border-radius:var(--r);padding:22px 16px;text-align:center;cursor:pointer;background:#fff;transition:.2s;user-select:none}
-.svc:hover{transform:translateY(-4px);border-color:var(--o);box-shadow:var(--sh)}
-.svc.sel{border-color:var(--o);background:var(--os);box-shadow:0 0 0 3px rgba(249,115,22,.15)}
-.ic{width:56px;height:56px;margin:0 auto 12px;border-radius:14px;display:grid;place-items:center;background:#ffedd5;color:var(--o);font-size:1.6rem}
-.svc.sel .ic{background:var(--o);color:#fff}.svc h3{margin:0;font-size:1rem}
-.ow{padding:20px 5% 60px;max-width:820px;margin:auto}
-.card{border:1px solid var(--l);border-radius:18px;padding:26px;box-shadow:var(--sh)}
-.card h2{color:var(--od);margin:0 0 6px}.hint{color:var(--m);margin:0 0 22px;font-size:.95rem}
-fieldset{border:0;padding:0;margin:0 0 22px}
-legend{font-weight:800;font-size:.8rem;color:var(--o);margin-bottom:6px;padding:0}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-label{display:block;font-weight:600;margin:10px 0 4px;font-size:.92rem}.req{color:var(--err)}
-input,textarea,select{width:100%;padding:12px 14px;border:1.5px solid #fdba74;border-radius:10px;font-size:1rem;font-family:inherit;background:#fff;color:var(--t)}
-input:focus,textarea:focus,select:focus{outline:none;border-color:var(--o);box-shadow:0 0 0 3px rgba(249,115,22,.15)}
-.invalid{border-color:var(--err)!important;box-shadow:0 0 0 3px rgba(220,38,38,.12)!important}
-textarea{resize:vertical;min-height:140px}
-.cc{font-size:.82rem;color:var(--m);text-align:right;margin-top:4px}
-.em{color:var(--err);font-size:.85rem;margin-top:4px;display:none}.em.show{display:block}
-.fa{display:flex;gap:10px;flex-wrap:wrap}.fa .btn{flex:1 1 auto}
-#loginHint{color:#991b1b;font-weight:600;font-size:.9rem;margin:10px 0 0;padding:12px 14px;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;text-align:center}
-#loginHint.ok{color:#065f46;background:#ecfdf5;border-color:#a7f3d0}
-footer{background:#0f172a;color:#e2e8f0;padding:28px 5%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
-footer a:hover{color:#fdba74}.fl{display:flex;gap:14px;flex-wrap:wrap;font-size:.92rem}
-#toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,100px);background:#0f172a;color:#fff;padding:12px 20px;border-radius:10px;font-weight:600;opacity:0;transition:.3s;z-index:100000;pointer-events:none}
-#toast.show{opacity:1;transform:translate(-50%,0)}
-.modal{position:fixed;inset:0;background:rgba(15,23,42,.65);display:none;align-items:center;justify-content:center;z-index:9999;padding:16px}
-.modal.show{display:flex}
-.mc{background:#fff;border-radius:18px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;padding:26px}
-.mc h3{margin:0 0 6px;color:var(--od)}
-.rr{display:grid;grid-template-columns:130px 1fr;gap:8px;padding:10px 0;border-bottom:1px dashed #e2e8f0;font-size:.94rem}
-.rr .k{color:var(--m);font-weight:600}.rr .v{word-break:break-word;white-space:pre-wrap}
-.ma{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}.ma .btn{flex:1 1 auto}
-@media(max-width:640px){.g2{grid-template-columns:1fr}.hero{padding:40px 5% 20px}.card{padding:18px}.rr{grid-template-columns:1fr;gap:2px}.logo{font-size:1rem}}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;overflow-x:hidden}
+a{color:var(--b)}h1,h2,h3{line-height:1.2;margin:0}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid #7fb0ff;outline-offset:2px}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--bd);text-decoration:none}
+.brand img{height:36px;width:36px;border-radius:50%;object-fit:cover}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;align-items:center}
+nav a{text-decoration:none;color:var(--ink);font-weight:600}
+.btn{display:inline-block;border:0;border-radius:999px;padding:12px 24px;font:inherit;font-weight:700;cursor:pointer;background:var(--b);color:#fff;text-decoration:none;box-shadow:0 6px 16px rgba(11,99,246,.25)}
+.btn:hover{background:var(--bd)}.btn.o{background:#fff;color:var(--b);border:2px solid var(--b);box-shadow:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+#mb{display:none;background:none;border:1px solid var(--line);border-radius:10px;font-size:22px;padding:4px 12px}
+.hero{background:linear-gradient(135deg,#fff 55%,var(--sky));padding:56px 0}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(2rem,5vw,3.3rem);color:var(--bd)}.hero h1 span{color:var(--b)}
+.hero p{color:var(--mut);font-size:1.1rem;max-width:480px}.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.pw{position:relative;max-width:340px;margin:auto;width:100%}
+.pw:before{content:"";position:absolute;inset:8% -6% -6% 10%;background:linear-gradient(160deg,var(--b),#7fb0ff);border-radius:38% 62% 55% 45%/50% 40% 60% 50%;opacity:.9}
+.ph{position:relative;aspect-ratio:4/5;border-radius:24px;background:#fff;border:2px dashed var(--b);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mut);padding:16px;overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+section{padding:60px 0}.ttl{text-align:center;margin-bottom:28px}.ttl h2{font-size:1.9rem;color:var(--bd)}.ttl p{color:var(--mut);margin:6px 0 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card{background:#fff;border:2px solid var(--line);border-radius:var(--r);padding:22px 16px;text-align:center;cursor:pointer;font:inherit;color:inherit;box-shadow:0 4px 14px rgba(13,27,61,.05);transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:var(--b)}
+.card.on{border-color:var(--b);background:var(--sky)}.card i{font-style:normal;font-size:2rem;display:block}.card b{display:block;margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;cursor:pointer}
+.chip.on{background:var(--b);border-color:var(--b);color:#fff}
+.sub{margin-top:26px}.sub h3{text-align:center;font-size:1.1rem;color:var(--mut)}
+form{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;margin-top:26px;box-shadow:0 10px 30px rgba(11,99,246,.08)}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}
+label{display:block;font-weight:600;font-size:.92rem;margin-bottom:4px}label small{color:var(--mut);font-weight:500}
+input,select,textarea{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+textarea{min-height:90px;resize:vertical}.req:after{content:" *";color:#d33}
+.er{display:flex;gap:6px}.er input{flex:1;min-width:0}.er select{width:auto;max-width:44%}
+.otp{background:var(--sky);border-radius:12px;padding:14px}.otp .er{margin-top:8px}
+.msg{font-size:.9rem;margin:8px 0 0;min-height:1.2em}.msg.ok{color:#0a7a3b}.msg.bad{color:#c22}
+.ff{padding:16px 0;color:var(--mut)}
+.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.pi{aspect-ratio:4/3;border:2px dashed var(--line);border-radius:14px;background:var(--sky);display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:.9rem;text-align:center;padding:8px;overflow:hidden}
+.pi img{width:100%;height:100%;object-fit:cover}
+footer{background:var(--navy);color:#cfe0ff;padding:36px 0 20px;margin-top:20px}footer a{color:#fff;margin-right:16px;text-decoration:none}
+#fx{position:fixed;inset:0;z-index:100;display:none;background:linear-gradient(#8fc4ff,#e8f4ff);flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+#fx.on{display:flex}#sk{position:absolute;top:14px;right:14px}
+#sc{width:min(92vw,560px);height:280px;position:relative;overflow:hidden}
+#sc>div{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .4s;pointer-events:none}
+#sc>div.on{opacity:1}#cap{font-weight:700;color:var(--bd);margin-top:10px;min-height:1.6em}
+.doc{width:150px;background:#fff;border-radius:8px;padding:16px;box-shadow:0 10px 30px rgba(11,99,246,.3);transition:transform 1.4s,opacity 1.4s}
+.doc s{display:block;height:8px;background:var(--line);border-radius:4px;margin:8px 0;width:0;animation:ln 1.2s forwards}.doc s:nth-child(2){animation-delay:.3s}.doc s:nth-child(3){animation-delay:.6s}
+@keyframes ln{to{width:100%}}
+.s1.go .doc{transform:scale(.5) rotate(-6deg);opacity:0}
+.rd{position:absolute;bottom:50px;left:-120px;animation:ride 3.2s linear forwards}
+@keyframes ride{to{left:105%}}
+.bg{position:absolute;bottom:50px;left:0;width:200%;height:90px;background:repeating-linear-gradient(90deg,#9fc3f5 0 50px,transparent 50px 90px,#7fa9e8 90px 120px,transparent 120px 190px);opacity:.6;animation:bgm 3s linear infinite}
+@keyframes bgm{to{transform:translateX(-190px)}}
+.road{position:absolute;bottom:0;left:0;right:0;height:50px;background:#35507d}
+.coin{width:120px;height:120px;border-radius:50%;background:radial-gradient(#5aa2ff,var(--b));box-shadow:0 0 40px rgba(11,99,246,.6);animation:spin 2s ease-out,pop .6s 2s}
+@keyframes spin{from{transform:translateY(-120px) rotateY(0)}to{transform:translateY(0) rotateY(1440deg)}}
+@keyframes pop{50%{transform:scale(1.15)}}
+.ck{stroke-dasharray:60;stroke-dashoffset:60;animation:dr 1s 1.4s forwards}@keyframes dr{to{stroke-dashoffset:0}}
+#fin{display:none;max-width:520px}#fin.on{display:block}#fin h2{font-size:2rem;color:var(--bd)}
+.oid{display:inline-block;margin:10px 0;font-size:1.6rem;font-weight:800;letter-spacing:2px;background:#fff;border:2px dashed var(--b);border-radius:12px;padding:8px 18px;color:var(--b)}
+#gate{position:fixed;inset:0;z-index:200;background:linear-gradient(135deg,#fff 50%,var(--sky));overflow:auto;display:none;align-items:center;justify-content:center;padding:20px}#gate.on{display:flex}.gc{width:min(100%,420px);background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 10px 30px rgba(11,99,246,.12)}.gc input{margin:4px 0 10px}.lk{background:none;border:0;color:var(--b);font:inherit;font-weight:700;cursor:pointer;padding:0}.gg{width:100%;margin-top:6px}
+#ad{margin:24px auto;padding:10px;border:1px dashed var(--line);border-radius:14px;text-align:center;max-width:728px}#ad small{display:block;color:var(--mut);font-size:.7rem}#ad img{max-width:100%;border-radius:10px}
+@media(max-width:780px){.hg,.fg{grid-template-columns:1fr}#mb{display:block}nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;padding:16px;border-bottom:1px solid var(--line)}nav ul.open{display:flex}.hero{padding:32px 0}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<header>
-  <div class="logo"><img src="Ulogo.png" alt="Ubaid Gill Studio logo" width="42" height="42" onerror="this.style.display='none'"><span>UBAID GILL <b>STUDIO</b></span></div>
-  <nav><a href="#home">Home</a><a href="#services">Services</a><a href="#order">Order Now</a><button class="btn" id="shareNav" type="button">🔗 Share</button><button class="btn ghost" id="loginBtn" type="button">Login</button><button class="btn" id="signupBtn" type="button">Sign Up</button><button class="btn ghost" id="logoutBtn" type="button" style="display:none">Logout</button></nav>
-</header>
-<main>
-<section class="hero" id="home">
-  <div>
-    <div class="tag">GRAPHIC DESIGNER</div>
-    <h1>Hi, I'm Ubaid Gill.<br>I design brands that <span>get noticed.</span></h1>
-    <p>Logos, posters, business cards, flyers &amp; social media ads, delivered fast. Order directly from me, no middleman.</p>
-    <a class="btn" href="#services">Explore Services →</a>
-  </div>
-  <div><img class="hero-img" src="ubaid.jpeg" alt="Ubaid Gill" onerror="this.style.visibility='hidden'"></div>
-</section>
-
-<h2 class="st" id="services">What would you like us to design?</h2>
-<p class="ss">Choose a service. The order form below will be pre-filled with your selection.</p>
-<div class="services" role="radiogroup" aria-label="Services">
-  <div class="svc" data-svc="Logo Design" role="radio" tabindex="0"><div class="ic">✦</div><h3>Logo Design</h3></div>
-  <div class="svc" data-svc="Business Card Design" role="radio" tabindex="0"><div class="ic">▭</div><h3>Business Card</h3></div>
-  <div class="svc" data-svc="Flyer Design" role="radio" tabindex="0"><div class="ic">▤</div><h3>Flyer Design</h3></div>
-  <div class="svc" data-svc="Social Media Ads" role="radio" tabindex="0"><div class="ic">◈</div><h3>Social Media Ads</h3></div>
-  <div class="svc" data-svc="Poster Design" role="radio" tabindex="0"><div class="ic">▣</div><h3>Poster Design</h3></div>
-</div>
-
-<div class="ow"><div class="card" id="order">
-  <h2>Order Form</h2>
-  <p class="hint">Fill in your details and describe your idea. I'll reply to your email.</p>
-  <form id="f" autocomplete="off" novalidate>
-    <input type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0" aria-hidden="true">
-    <fieldset>
-      <legend>Service</legend>
-      <label for="service">What do you need? <span class="req">*</span></label>
-      <select id="service" name="service" required>
-        <option value="">Select a service</option><option>Logo Design</option><option>Business Card Design</option><option>Flyer Design</option><option>Social Media Ads</option><option>Poster Design</option>
-      </select>
-      <div class="em" id="e-service">Please select a service.</div>
-    </fieldset>
-    <fieldset>
-      <legend>Your info</legend>
-      <div class="g2">
-        <div><label for="name">Full name <span class="req">*</span></label><input id="name" name="name" maxlength="80" placeholder="e.g. Ahmed Khan"><div class="em" id="e-name">Please enter your name.</div></div>
-        <div><label for="email">Email <span class="req">*</span></label><input id="email" name="email" type="email" maxlength="120" placeholder="you@example.com"><div class="em" id="e-email">Please enter a valid email.</div></div>
-      </div>
-      <label for="phone">WhatsApp / phone (optional)</label><input id="phone" name="phone" maxlength="30" placeholder="+92 300 1234567">
-      <div class="em" id="e-phone">Please enter a valid phone number (7-30 digits).</div>
-    </fieldset>
-    <fieldset>
-      <legend>Project details</legend>
-      <label for="desc">Describe your idea <span class="req">*</span></label>
-      <textarea id="desc" name="description" maxlength="1500" placeholder="Business name, colors, style, text to include, size..."></textarea>
-      <div class="cc" id="cc">0 / 1500</div>
-      <div class="em" id="e-desc">Please describe your project (at least 20 characters).</div>
-      <div class="g2">
-        <div><label for="deadline">Deadline (optional)</label><input id="deadline" name="deadline" type="date"></div>
-        <div><label for="ref">Reference link (optional)</label><input id="ref" name="reference" type="url" maxlength="300" placeholder="Google Drive / Pinterest link"><div class="em" id="e-ref">Please enter a valid URL (https://...).</div></div>
-      </div>
-    </fieldset>
-    <div class="fa"><button class="btn" type="submit">Review Order</button><button class="btn ghost" type="reset">Clear</button></div>
-    <p id="loginHint">🔒 You must <b>Login</b> or <b>Sign Up</b> before submitting your order.</p>
-  </form>
+<div id="gate" role="dialog" aria-modal="true" aria-label="Account"><div class="gc">
+<h2 style="color:var(--bd);margin-bottom:12px">Ubaid Gill Studio</h2>
+<form id="gu" novalidate><h3 style="margin-bottom:8px">Create Account</h3>
+<label for="gn">Name</label><input id="gn" autocomplete="name" required>
+<label for="ge">Email</label><input id="ge" type="email" autocomplete="email" required>
+<label for="gp">Password (min 8 characters)</label><input id="gp" type="password" minlength="8" autocomplete="new-password" required>
+<button class="btn gg">Create Account</button><button type="button" class="btn o gg gog">Continue with Google</button>
+<p>You already have an account? <button type="button" class="lk" id="g2i">Sign In</button></p></form>
+<form id="gi" novalidate hidden><h3 style="margin-bottom:8px">Sign In</h3>
+<label for="ie">Email</label><input id="ie" type="email" autocomplete="email" required>
+<label for="ip">Password</label><input id="ip" type="password" autocomplete="current-password" required>
+<button class="btn gg">Sign In</button><button type="button" class="btn o gg gog">Continue with Google</button>
+<p>New here? <button type="button" class="lk" id="g2u">Create Account</button></p></form>
+<form id="gs" novalidate hidden><h3 style="margin-bottom:4px">Choose your order code</h3><p style="color:var(--mut);margin-top:0">A secret nickname you will enter on every order. Keep it private.</p>
+<label for="sc1">Order code (min 4 characters)</label><input id="sc1" type="password" minlength="4" autocomplete="off" required>
+<button class="btn gg">Save Code</button></form>
+<p class="msg" id="gm" role="alert"></p>
+<p id="gdev" hidden style="color:var(--mut)">Setup required: add your Firebase settings in CONFIG to enable Sign Up, Sign In and Google login.<br><button type="button" class="lk" id="gpv">Preview site (setup mode)</button></p>
 </div></div>
+<header><div class="wrap nav">
+<a class="brand" href="#home"><img src="assets/logo.png" alt="" onerror="this.style.display='none'">Ubaid Gill Studio</a>
+<button id="mb" aria-label="Menu" aria-expanded="false">☰</button>
+<nav aria-label="Main"><ul id="menu">
+<li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li>
+<li><a class="btn" href="#services">Place an Order</a></li><li id="acct" hidden><button class="lk" id="outb">Sign out</button></li></ul></nav>
+</div></header>
+
+<main>
+<section class="hero" id="home"><div class="wrap hg">
+<div><h1>Hi, I am <span>Ubaid Gill.</span><br>I am a Freelancer.</h1>
+<p>You can get professional and creative services for your business and personal needs.</p>
+<div class="acts"><a class="btn" href="#services">Place an Order</a><a class="btn o" href="#portfolio">View Portfolio</a></div></div>
+<div class="pw"><div class="ph"><span>Add your photo<br><small>assets/ubaid.jpg</small></span><img src="assets/ubaid.jpg" alt="Ubaid Gill" onerror="this.remove()"></div></div>
+</div></section>
+
+<section id="services"><div class="wrap">
+<div class="ttl"><h2>Services</h2><p>Choose a service, then the exact work you need.</p></div>
+<div class="cards" id="cats"></div>
+<div class="sub" id="subs" hidden><h3>What exactly do you need?</h3><div class="chips" id="subc"></div></div>
+<form id="of" novalidate hidden aria-label="Order form">
+<h3 id="ft" style="margin-bottom:14px;color:var(--bd)"></h3>
+<div class="fg" id="fields"></div>
+<h3 style="margin:22px 0 10px;color:var(--bd)">Contact</h3>
+<div class="fg">
+<div class="full"><label class="req" for="el">Email address</label>
+<div class="er"><input id="el" autocomplete="off" placeholder="yourname" aria-label="Email name before @"><select id="ed" aria-label="Email domain"></select></div>
+<input id="ec" class="full" style="margin-top:6px" placeholder="your-company.com" hidden aria-label="Custom email domain">
+<p class="msg" id="ep">Full address: <b id="efull">—</b></p></div>
+<div class="full"><label for="wa">WhatsApp number <small>(optional)</small></label><input id="wa" type="tel" inputmode="tel" placeholder="+92 300 1234567"></div>
+<div class="full otp"><label class="req" for="oc">Your order code</label><input id="oc" type="password" autocomplete="off" required><p class="msg"><button type="button" class="lk" id="fg">Forgot code?</button></p><p class="msg" id="om" role="status"></p></div></div>
+<p class="msg bad" id="fm" role="alert"></p>
+<button class="btn" id="sub" type="submit" style="width:100%;margin-top:8px">Submit Order</button>
+<p class="msg" style="text-align:center">You will be asked for your order code when you submit.</p>
+</form></div></section>
+
+<section id="portfolio" style="background:var(--sky)"><div class="wrap">
+<div class="ttl"><h2>Portfolio</h2><p>Add your work images as assets/work1.jpg … work6.jpg</p></div>
+<div class="pg" id="pg"></div></div></section>
+
+<section id="about"><div class="wrap" style="max-width:720px;text-align:center">
+<div class="ttl"><h2>About</h2></div>
+<p>Hi, I am Ubaid Gill, a freelancer offering web development, social media services, graphic designing and video editing. Place your order directly with Ubaid Gill Studio and I will contact you personally.</p></div></section>
+
+<section id="contact" style="padding-top:0"><div class="wrap" style="text-align:center">
+<div class="ttl"><h2>Contact</h2></div><p id="ci" style="color:var(--mut)">Contact details coming soon. Use the order form above.</p></div></section>
+<div class="wrap"><aside id="ad" hidden aria-label="Advertisement"></aside></div>
 </main>
 
-<footer>
-  <div><b>Ubaid Gill Studio</b><br><small>© <span id="yr"></span> All rights reserved</small></div>
-  <div class="fl"><a href="mailto:ubaidgillstudio@gmail.com">ubaidgillstudio@gmail.com</a><a href="#services">Services</a><a href="#order">Order</a></div>
-  <button class="btn" id="shareFoot" type="button">🔗 Share website</button>
-</footer>
+<footer><div class="wrap"><b style="color:#fff;font-size:1.1rem">Ubaid Gill Studio</b>
+<p><a href="#home">Home</a><a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#about">About</a><a href="#contact">Contact</a></p>
+<div id="soc"></div><small>© <span id="yr"></span> Ubaid Gill Studio. All rights reserved.</small></div></footer>
 
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
-  <div class="mc" id="mc">
-    <h3 id="mt">Review your order</h3>
-    <p class="hint" style="margin:0 0 10px">Check everything before sending.</p>
-    <div id="rv"></div>
-    <div class="ma"><button class="btn ghost" id="edit" type="button">Edit</button><button class="btn blue" id="submit" type="button">Submit Order</button></div>
-    <p id="modalHint" style="color:#991b1b;font-size:.85rem;margin-top:10px;display:none;text-align:center">🔒 Please login to submit.</p>
-  </div>
+<div id="fx" role="dialog" aria-modal="true" aria-label="Order delivery">
+<button class="btn o" id="sk">Skip</button>
+<div id="sc">
+<div class="s1"><div class="doc"><b>ORDER</b><s></s><s></s><s></s></div></div>
+<div class="s2"><svg width="150" height="130" viewBox="0 0 150 130"><rect x="15" y="40" width="120" height="80" rx="8" fill="#fff" stroke="#0b63f6" stroke-width="3"/><path d="M15 44 75 85 135 44" fill="none" stroke="#0b63f6" stroke-width="3"/><circle cx="75" cy="85" r="10" fill="#e8553d"/></svg></div>
+<div class="s3"><div class="bg"></div><div class="road"></div><svg class="rd" width="120" height="80" viewBox="0 0 120 80"><circle cx="22" cy="58" r="16" fill="none" stroke="#0a3fa8" stroke-width="4"/><circle cx="92" cy="58" r="16" fill="none" stroke="#0a3fa8" stroke-width="4"/><path d="M22 58 45 58 60 30 85 30 92 58M45 58 70 58 60 30" fill="none" stroke="#0a3fa8" stroke-width="4"/><circle cx="62" cy="14" r="8" fill="#0b63f6"/><rect x="40" y="22" width="22" height="22" rx="4" fill="#e8553d"/></svg></div>
+<div class="s4"><svg width="260" height="230" viewBox="0 0 260 230"><rect x="40" y="70" width="180" height="150" fill="#fff" stroke="#0a3fa8" stroke-width="3"/><rect x="20" y="30" width="220" height="40" rx="6" fill="#0a3fa8"/><text x="130" y="57" text-anchor="middle" fill="#fff" font-weight="800" font-size="16" font-family="sans-serif">UBAID GILL STUDIO</text><rect x="60" y="100" width="60" height="120" fill="#bcd7ff"/><rect x="140" y="100" width="60" height="50" fill="#bcd7ff"/><rect x="125" y="170" width="70" height="40" rx="4" fill="#0b63f6"/><text x="160" y="195" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" font-family="sans-serif">SUBMIT ORDER</text></svg></div>
+<div class="s5"><div class="coin"></div><svg style="position:absolute" width="80" height="80" viewBox="0 0 80 80"><path class="ck" d="M18 42 34 58 62 24" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </div>
-<div class="modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
-  <div class="mc">
-    <h3 id="authTitle">Login</h3>
-    <div id="aNameWrap"><label for="aName">Full name</label><input id="aName" maxlength="80" placeholder="Your name"></div>
-    <label for="aEmail">Email</label><input id="aEmail" type="email" placeholder="you@example.com">
-    <label for="aPass">Password</label><input id="aPass" type="password" placeholder="At least 6 characters">
-    <div class="em" id="authMsg"></div>
-    <div class="ma">
-      <button class="btn" id="authGo" type="button">Login</button>
-      <button class="btn ghost" id="authGoogle" type="button">Continue with Google</button>
-    </div>
-    <p style="text-align:center"><a href="#" id="authSwitch" style="color:#ea580c;font-weight:600"></a></p>
-    <button class="btn ghost" id="authClose" type="button" style="width:100%">Close</button>
-  </div>
+<div id="cap"></div>
+<div id="fin"><h2>Congratulations!</h2><p><b>Your order has been submitted successfully.</b></p><p>Thank you for choosing Ubaid Gill Studio. Your order has been received successfully.</p>
+<div class="oid" id="oid"></div><div class="acts" style="justify-content:center"><button class="btn" id="no">New Order</button><button class="btn o" id="sh">Share Website</button></div><p class="msg ok" id="shm"></p></div>
 </div>
-<div id="toast" role="status"></div>
 
 <script>
-(function(){
-"use strict";
-var WEB3FORMS_KEY="a76f080d-e136-4536-bd39-76e9f5fa9895";
-var $=function(i){return document.getElementById(i)};
-var f=$("f"),svc=$("service"),desc=$("desc"),modal=$("modal");
-$("yr").textContent=new Date().getFullYear();
-function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove("show")},3000)}
-
-/* ---------- Rate limit (client-side, 10 min / max 3 orders) ---------- */
-var RL_KEY="ugs_submit_ts", RL_WINDOW=10*60*1000, RL_MAX=3;
-function rateCheck(){
-  try{
-    var ts=JSON.parse(localStorage.getItem(RL_KEY)||"[]");
-    var now=Date.now();
-    ts=ts.filter(function(t){return now-t<RL_WINDOW});
-    return ts.length<RL_MAX;
-  }catch(e){return true}
-}
-function rateRecord(){
-  try{
-    var ts=JSON.parse(localStorage.getItem(RL_KEY)||"[]");
-    var now=Date.now();
-    ts=ts.filter(function(t){return now-t<RL_WINDOW});
-    ts.push(now);
-    localStorage.setItem(RL_KEY,JSON.stringify(ts));
-  }catch(e){}
-}
-
-var cards=document.querySelectorAll(".svc");
-function pick(v){cards.forEach(function(c){var s=c.dataset.svc===v;c.classList.toggle("sel",s);c.setAttribute("aria-checked",s)});svc.value=v}
-cards.forEach(function(c){
-  c.addEventListener("click",function(){pick(c.dataset.svc);$("order").scrollIntoView({behavior:"smooth",block:"start"})});
-  c.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();c.click()}});
-});
-svc.addEventListener("change",function(){pick(svc.value)});
-f.addEventListener("reset",function(){
-  pick("");
-  $("cc").textContent="0 / 1500";
-  document.querySelectorAll(".invalid").forEach(function(x){x.classList.remove("invalid")});
-  document.querySelectorAll(".em").forEach(function(x){x.classList.remove("show")});
-});
-desc.addEventListener("input",function(){$("cc").textContent=desc.value.length+" / 1500"});
-
-function share(){
-  var d={title:"Ubaid Gill Studio",text:"Premium graphic design: logos, posters, flyers and more.",url:location.href.split("#")[0]};
-  if(navigator.share){navigator.share(d).catch(function(){})}
-  else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){toast("Link copied")})}
-  else{toast("Copy the link from the address bar")}
-}
-["shareNav","shareFoot"].forEach(function(i){$(i).addEventListener("click",share)});
-
-function bad(id,e,on){$(id).classList.toggle("invalid",on);$(e).classList.toggle("show",on);return on}
-
-/* ---------- Stronger validation ---------- */
-function validate(){
-  var n=f.name.value.trim(),
-      e=f.email.value.trim(),
-      p=f.phone.value.trim(),
-      r=f.reference.value.trim(),
-      d=desc.value.trim();
-
-  // name: 2-80 chars, at least one letter, no all-digits
-  var nameOk = n.length>=2 && n.length<=80 && /[A-Za-z\u0600-\u06FF]/.test(n);
-
-  // email standard
-  var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e) && e.length<=120;
-
-  // phone: optional, but if provided must be valid
-  var phoneOk = !p || (/^[\d\s\+\-\(\)]{7,30}$/.test(p) && /\d{7,}/.test(p.replace(/[\s\-\(\)\+]/g,"")));
-
-  // reference: optional, if provided must be http(s) URL
-  var refOk = !r || /^https?:\/\/[^\s]{3,}$/i.test(r);
-
-  // description: 20-1500, not too many URLs (anti-spam)
-  var urlMatches = d.match(/https?:\/\//gi);
-  var descOk = d.length>=20 && d.length<=1500 && (!urlMatches || urlMatches.length<=3);
-
-  var errs=[
-    bad("service","e-service",!svc.value),
-    bad("name","e-name",!nameOk),
-    bad("email","e-email",!emailOk),
-    bad("desc","e-desc",!descOk),
-    bad("phone","e-phone",!phoneOk),
-    bad("ref","e-ref",!refOk)
-  ];
-
-  var focusMap=[svc,f.name,f.email,desc,f.phone,f.reference];
-  var i=errs.indexOf(true);
-  if(i>-1){
-    try{focusMap[i].focus()}catch(x){}
-    if(!descOk && urlMatches && urlMatches.length>3) toast("Too many links in description. Please reduce them.");
-    return false;
-  }
-  return true;
-}
-
-function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
-function data(){return{service:svc.value,name:f.name.value.trim(),email:f.email.value.trim(),phone:f.phone.value.trim(),description:desc.value.trim(),deadline:f.deadline.value,reference:f.reference.value.trim()}}
-
-f.addEventListener("submit",function(e){
-  e.preventDefault();
-  if(f.botcheck.value)return;
-  if(!validate())return;
-  var d=data(),rows=[["Service",d.service],["Name",d.name],["Email",d.email],["Phone",d.phone],["Deadline",d.deadline],["Reference",d.reference],["Idea",d.description]];
-  $("rv").innerHTML=rows.filter(function(r){return r[1]}).map(function(r){return '<div class="rr"><div class="k">'+r[0]+'</div><div class="v">'+esc(r[1])+'</div></div>'}).join("");
-  // show login warning inside modal
-  var mh=$("modalHint");
-  if(mh) mh.style.display = window.currentUser ? "none" : "block";
-  modal.className="modal show";
-  $("submit").disabled=false;$("submit").textContent="Submit Order";$("submit").focus();
-});
-
-$("edit").addEventListener("click",function(){if(!$("submit").disabled)modal.classList.remove("show")});
-modal.addEventListener("click",function(e){if(e.target===modal&&!$("submit").disabled)modal.classList.remove("show")});
-
-function send(d){
-  var body=Object.assign({access_key:WEB3FORMS_KEY,subject:"New order: "+d.service+" from "+d.name,from_name:"Ubaid Gill Studio"},d);
-  return fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(body)})
-    .then(function(r){return r.json()}).then(function(j){return !!j.success}).catch(function(){return false});
-}
-
-/* ---------- Submit with LOGIN GATE + RATE LIMIT ---------- */
-$("submit").addEventListener("click",async function(){
-  var btn=this;if(btn.disabled)return;
-
-  // 1) Firebase must be ready
-  if(window.firebaseReady === false){
-    toast("⏳ Login service still loading. Please wait a moment.");
-    return;
-  }
-
-  // 2) Must be logged in
-  if(!window.currentUser){
-    window.__pendingSubmit = true;
-    modal.classList.remove("show");
-    var lb=document.getElementById("loginBtn");
-    if(lb) lb.click();
-    toast("🔒 Please login or sign up to submit your order.");
-    return;
-  }
-
-  // 3) Client-side rate limit
-  if(!rateCheck()){
-    toast("⏳ Too many submissions. Please wait 10 minutes.");
-    return;
-  }
-
-  btn.disabled=true;btn.textContent="Sending...";
-  var d=data(),oid="UG-"+Date.now().toString(36).toUpperCase().slice(-6);
-  d.order_id=oid;
-
-  var ok=await send(d);
-  if(ok && window.saveOrder){
-    try{ await window.saveOrder(d); }catch(e){ console.warn("Save order failed", e); }
-  }
-  if(!ok){
-    btn.disabled=false;btn.textContent="Submit Order";
-    toast("Could not send. Check your internet and try again.");
-    return;
-  }
-  rateRecord();
-  btn.textContent="Submit Order";
-  deliveryPlay(oid);
-});
-})();
-</script>
-<style>
-#dv{position:fixed;inset:0;z-index:9998;display:none;opacity:0;transition:opacity .4s;overflow:hidden;background:linear-gradient(180deg,#9fd0ff 0%,#dff0ff 55%,#fff4e0 100%)}
-#dv.on{display:block}#dv.vis{opacity:1}
-#dvScene{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transition:opacity .8s}
-.fb{transform-box:fill-box;transform-origin:center}
-#dvPaper{opacity:0;transform:scale(.7)}#dvEnvBody{opacity:0}
-#dvFlap{opacity:0;transform:scaleY(-1);transform-origin:50% 0}#dvSeal{transform:scale(0)}
-#dvEnv{transform:translate(280px,150px) scale(1.4)}#dvShop{transform:translateX(700px)}
-#dvScene.riding .spin{animation:dvspin .45s linear infinite}
-#dvScene.riding .pedal{animation:dvpedal .45s ease-in-out infinite alternate}
-#dvScene.riding .bob{animation:dvbob .22s ease-in-out infinite alternate}
-.spin{transform-box:fill-box;transform-origin:center}.pedal{transform-box:fill-box;transform-origin:50% 0}
-.blink{animation:dvpulse .5s 2}
-@keyframes dvspin{to{transform:rotate(360deg)}}
-@keyframes dvpedal{from{transform:rotate(28deg)}to{transform:rotate(-28deg)}}
-@keyframes dvbob{to{transform:translateY(-2px)}}
-@keyframes dvpulse{50%{transform:scale(1.2)}}
-#dvSkip{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:14px;z-index:5;background:rgba(255,255,255,.88);border:0;border-radius:99px;padding:8px 16px;font:600 .9rem system-ui,Arial;color:#0f172a;cursor:pointer}
-#dvFinal{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;pointer-events:none}
-#dvFinal.show{pointer-events:auto}
-#dvFinal .t{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}
-#dvFinal.show .t{opacity:1;transform:none}
-#dvFinal>.t:nth-child(3){transition-delay:.2s}#dvFinal>.t:nth-child(4){transition-delay:.35s}#dvFinal>.t:nth-child(5){transition-delay:.5s}
-#dvFinal h2{margin:0 0 4px;font-size:clamp(1.7rem,5.5vw,2.5rem);color:#0b63f6}
-#dvFinal p{margin:0 0 6px;font-weight:600;color:#0f172a}
-#dvCoin{width:clamp(110px,24vw,150px);height:clamp(110px,24vw,150px);margin:14px 0;opacity:0;transform:scale(0)}
-#dvCoin svg{width:100%;height:100%;filter:drop-shadow(0 10px 20px rgba(29,137,238,.45))}
-.dvtick{stroke-dasharray:80;stroke-dashoffset:80}
-#dvOid{display:inline-block;background:#fff;border:2px solid #0b63f6;border-radius:12px;padding:6px 16px;font:800 1rem ui-monospace,Consolas,monospace;color:#0b63f6;margin:6px 0 10px}
-.dvbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.dvp{position:fixed;left:0;top:0;border-radius:50%;pointer-events:none;z-index:10000}
-</style>
-<script>
-(function(){
-"use strict";
-var root=null,timers=[],started=false,sparkT=null,ba=null,sa=null;
-var COLS=["#ef4444","#f97316","#facc15","#22c55e","#0ea5e9","#4f46e5","#a855f7"];
-var $=function(i){return document.getElementById(i)};
-function at(ms,fn){timers.push(setTimeout(fn,ms))}
-function badge(){var p=[],i,a,r;for(i=0;i<140;i++){a=i/140*6.2832;r=41+3.4*Math.cos(a*14);p.push((50+r*Math.cos(a)).toFixed(1)+","+(50+r*Math.sin(a)).toFixed(1))}return p.join(" ")}
-function world(){
-  var s="",i,x,h,w,r,cols=["#cbd5e1","#fde68a","#fbcfe8","#bfdbfe","#fed7aa","#d9f99d","#e9d5ff"];
-  for(i=0,x=0;x<1500;i++){
-    h=100+(i*53)%70;w=78+(i*29)%26;
-    s+='<rect x="'+x+'" y="'+(352-h)+'" width="'+w+'" height="'+h+'" fill="'+cols[i%7]+'"/>';
-    for(r=14;r<h-16;r+=28){s+='<rect x="'+(x+12)+'" y="'+(352-h+r)+'" width="13" height="14" fill="#fff" opacity=".8"/><rect x="'+(x+w-25)+'" y="'+(352-h+r)+'" width="13" height="14" fill="#fff" opacity=".8"/>'}
-    x+=w+22+(i*17)%30;
-  }
-  for(x=40;x<1500;x+=95+(x%3)*14){s+='<rect x="'+(x-3)+'" y="332" width="6" height="22" fill="#92400e"/><circle cx="'+x+'" cy="322" r="'+(17+(x%2)*4)+'" fill="'+(((x/95)|0)%2?"#16a34a":"#22c55e")+'"/>'}
-  for(x=0;x<1500;x+=64){s+='<rect x="'+x+'" y="392" width="34" height="5" rx="2" fill="#fff" opacity=".85"/>'}
-  return s;
-}
-var SHOP='<g id="dvShop"><rect x="168" y="196" width="224" height="14" rx="3" fill="#334155"/><rect id="dvRoof" x="276" y="188" width="8" height="8" fill="none"/><rect x="175" y="210" width="210" height="142" fill="#fff7ed"/><rect x="183" y="216" width="194" height="34" rx="6" fill="#f97316"/><text x="280" y="238" text-anchor="middle" font-family="system-ui,Arial" font-weight="800" font-size="15" fill="#fff">UBAID GILL STUDIO</text><rect x="187" y="262" width="100" height="70" rx="5" fill="#bfdbfe" stroke="#334155" stroke-width="3"/><rect x="305" y="262" width="62" height="90" rx="3" fill="#0b63f6"/><circle cx="357" cy="310" r="3" fill="#fff"/><g id="dvBox" class="fb"><rect x="130" y="316" width="36" height="36" rx="4" fill="#0b63f6"/><rect x="136" y="322" width="24" height="5" rx="2" fill="#0f172a"/><text x="148" y="338" text-anchor="middle" font-family="system-ui,Arial" font-weight="800" font-size="6" fill="#fff">SUBMIT</text><text x="148" y="346" text-anchor="middle" font-family="system-ui,Arial" font-weight="800" font-size="6" fill="#fff">ORDER</text></g></g>';
-var RIDER='<g transform="translate(62 352)"><g class="bob"><circle cx="-30" cy="-20" r="20" fill="none" stroke="#1e293b" stroke-width="3"/><g class="spin" stroke="#475569" stroke-width="1.5"><line x1="-48" y1="-20" x2="-12" y2="-20"/><line x1="-30" y1="-38" x2="-30" y2="-2"/></g><circle cx="30" cy="-20" r="20" fill="none" stroke="#1e293b" stroke-width="3"/><g class="spin" stroke="#475569" stroke-width="1.5"><line x1="12" y1="-20" x2="48" y2="-20"/><line x1="30" y1="-38" x2="30" y2="-2"/></g><path d="M-30 -20L-6 -20L-14 -46L18 -48L30 -20M-6 -20L18 -48M18 -48L22 -57L29 -57" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20 -48L-8 -48" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/><line x1="2" y1="-82" x2="-26" y2="-52" stroke="#7c4a1e" stroke-width="3"/><rect x="-36" y="-60" width="22" height="18" rx="3" fill="#b45309"/><path d="M-36 -60h22v7h-22z" fill="#92400e"/><line x1="-12" y1="-50" x2="2" y2="-84" stroke="#0b63f6" stroke-width="12" stroke-linecap="round"/><line x1="2" y1="-82" x2="24" y2="-59" stroke="#0b63f6" stroke-width="5" stroke-linecap="round"/><circle cx="25" cy="-58" r="3.5" fill="#f5c9a0"/><circle cx="6" cy="-96" r="8" fill="#f5c9a0"/><path d="M-2 -98 a8 8 0 0 1 16 0 z" fill="#f97316"/><line class="pedal" x1="-12" y1="-50" x2="-4" y2="-22" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/></g></g>';
-var ENV='<g id="dvEnv"><g id="dvPaper" class="fb"><rect x="-70" y="-80" width="140" height="160" rx="6" fill="#fff" stroke="#f97316" stroke-width="3"/><g id="dvLines"><rect x="-50" y="-58" width="70" height="8" rx="4" fill="#f97316"/><rect x="-50" y="-36" width="100" height="5" rx="2" fill="#cbd5e1"/><rect x="-50" y="-22" width="100" height="5" rx="2" fill="#cbd5e1"/><rect x="-50" y="-8" width="80" height="5" rx="2" fill="#cbd5e1"/><rect x="-50" y="14" width="100" height="5" rx="2" fill="#cbd5e1"/><rect x="-50" y="28" width="60" height="5" rx="2" fill="#cbd5e1"/></g></g><g id="dvEnvBody"><rect x="-70" y="-44" width="140" height="88" rx="6" fill="#fde9bf" stroke="#d28b0f" stroke-width="3"/><path d="M-70 44L0 -2L70 44" fill="none" stroke="#d28b0f" stroke-width="2"/></g><polygon id="dvFlap" class="fb" points="-70,-44 70,-44 0,6" fill="#fbbf24" stroke="#d28b0f" stroke-width="3" stroke-linejoin="round"/><g id="dvSeal" class="fb"><circle cx="0" cy="6" r="12" fill="#dc2626" stroke="#991b1b" stroke-width="2"/><circle cx="0" cy="6" r="6" fill="none" stroke="#fecaca" stroke-width="1.5"/></g></g>';
-function build(){
-  root=document.createElement("div");root.id="dv";
-  root.setAttribute("role","dialog");root.setAttribute("aria-label","Order submitted");
-  root.innerHTML='<button id="dvSkip" type="button">Skip ›</button><svg id="dvScene" viewBox="0 0 560 420" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg"><rect x="-3000" y="352" width="6560" height="900" fill="#64748b"/><rect x="-3000" y="352" width="6560" height="10" fill="#94a3b8"/><g id="dvBg">'+world()+'</g>'+SHOP+RIDER+ENV+'</svg><div id="dvFinal"><div class="t"><h2>Congratulations!</h2><p>Your order has been submitted.</p></div><div id="dvCoin"><svg viewBox="0 0 100 100"><polygon points="'+badge()+'" fill="#1d89ee" stroke="#1d89ee" stroke-width="2" stroke-linejoin="round"/><path id="dvTick" class="dvtick" d="M29 52L44 67L72 36" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="t"><p>Thanks for trusting Ubaid Gill Studio and this deal!</p></div><div class="t"><span id="dvOid"></span></div><div class="t dvbtns"><button class="btn blue" id="dvAgain" type="button">New Order</button><button class="btn ghost" id="dvShare" type="button">Share</button></div></div>';
-  document.body.appendChild(root);
-  $("dvSkip").addEventListener("click",finish);
-  $("dvAgain").addEventListener("click",function(){location.href=location.pathname+"#order";location.reload()});
-  $("dvShare").addEventListener("click",function(){
-    var b=this,d={title:"Ubaid Gill Studio",text:"Premium graphic design",url:location.href.split("#")[0]};
-    if(navigator.share){navigator.share(d).catch(function(){})}
-    else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){b.textContent="Link copied"})}
-  });
-}
-function dot(x,y,c,sz,life,dx,dy){
-  var d=document.createElement("div");d.className="dvp";
-  d.style.cssText="width:"+sz+"px;height:"+sz+"px;margin:-"+sz/2+"px 0 0 -"+sz/2+"px;background:"+c+";box-shadow:0 0 8px "+c;
-  document.body.appendChild(d);
-  d.animate([{transform:`translate(${x}px,${y}px) scale(1)`,opacity:1},{transform:`translate(${x+dx*.8}px,${y+dy*.8}px) scale(1)`,opacity:1,offset:.55},{transform:`translate(${x+dx}px,${y+dy+60}px) scale(.3)`,opacity:0}],{duration:life,easing:"cubic-bezier(.2,.7,.3,1)",fill:"forwards"});
-  setTimeout(function(){d.remove()},life+50);
-}
-function burst(x,y){
-  var k=Math.min(1.3,Math.max(.7,innerWidth/700)),i,a,r;
-  var ring=document.createElement("div");ring.className="dvp";
-  ring.style.cssText="width:20px;height:20px;margin:-10px 0 0 -10px;border:3px solid #fff";
-  document.body.appendChild(ring);
-  ring.animate([{transform:`translate(${x}px,${y}px) scale(.3)`,opacity:.9},{transform:`translate(${x}px,${y}px) scale(6)`,opacity:0}],{duration:700,easing:"ease-out",fill:"forwards"});
-  setTimeout(function(){ring.remove()},800);
-  for(i=0;i<49;i++){a=i/49*6.2832+Math.random()*.3;r=(90+Math.random()*130)*k;dot(x,y,COLS[i%7],7,1300+Math.random()*600,Math.cos(a)*r,Math.sin(a)*r)}
-}
-function finish(){
-  timers.forEach(clearTimeout);timers=[];clearInterval(sparkT);
-  document.querySelectorAll(".dvp").forEach(function(n){n.remove()});
-  var scene=$("dvScene"),coin=$("dvCoin"),tick=$("dvTick");
-  scene.classList.remove("riding");
-  if(ba)ba.finish();else $("dvBg").style.transform="translateX(-760px)";
-  if(sa)sa.finish();else $("dvShop").style.transform="translateX(0)";
-  $("dvEnv").style.opacity=0;
-  coin.style.transition="none";coin.style.opacity=1;coin.style.transform="scale(1)";
-  tick.style.transition="none";tick.style.strokeDashoffset=0;
-  scene.style.opacity=".22";
-  $("dvSkip").style.display="none";
-  $("dvFinal").classList.add("show");
-}
-function play(oid){
-  if(started)return;started=true;
-  if(!root)build();
-  $("dvOid").textContent="Order ID: "+oid;
-  var m=$("modal");if(m)m.className="modal";
-  document.body.style.overflow="hidden";
-  root.classList.add("on");void root.offsetWidth;root.classList.add("vis");
-  if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){finish();return}
-  var env=$("dvEnv"),paper=$("dvPaper"),lines=$("dvLines"),body=$("dvEnvBody"),flap=$("dvFlap"),seal=$("dvSeal"),scene=$("dvScene"),box=$("dvBox"),coin=$("dvCoin"),tick=$("dvTick"),ex=0,ey=0;
-  at(0,function(){paper.style.transition="opacity .5s,transform .5s";paper.style.opacity=1;paper.style.transform="scale(1)"});
-  at(800,function(){paper.style.transition="transform .6s ease-in-out";paper.style.transform="scaleY(.55)";lines.style.transition="opacity .3s";lines.style.opacity=0});
-  at(1450,function(){paper.style.transition="none";paper.style.opacity=0;body.style.opacity=1;flap.style.opacity=1});
-  at(1500,function(){flap.style.transition="transform .5s ease-in-out";flap.style.transform="scaleY(1)"});
-  at(2050,function(){seal.style.transition="transform .45s cubic-bezier(.34,1.56,.64,1)";seal.style.transform="scale(1)"});
-  at(2800,function(){env.style.transition="transform .9s cubic-bezier(.5,0,.3,1)";env.style.transform="translate(39px,303px) scale(.22)"});
-  at(3750,function(){env.style.transition="opacity .25s";env.style.opacity=0});
-  at(3900,function(){
-    scene.classList.add("riding");
-    ba=$("dvBg").animate([{transform:"translateX(0)"},{transform:"translateX(-760px)"}],{duration:4500,easing:"linear",fill:"forwards"});
-    sa=$("dvShop").animate([{transform:"translateX(700px)"},{transform:"translateX(0)"}],{duration:4500,easing:"cubic-bezier(.25,.6,.35,1)",fill:"forwards"});
-  });
-  at(8450,function(){scene.classList.remove("riding")});
-  at(8600,function(){
-    env.style.transition="none";env.style.transform="translate(87px,295px) scale(.22)";env.style.opacity=1;void env.getBoundingClientRect();
-    env.style.transition="transform .8s cubic-bezier(.5,0,.3,1),opacity .25s .55s";env.style.transform="translate(148px,326px) scale(.1)";env.style.opacity=0;
-  });
-  at(9500,function(){box.classList.add("blink")});
-  at(9900,function(){
-    var r=$("dvRoof").getBoundingClientRect(),c=coin.getBoundingClientRect(),sx=r.left+r.width/2,sy=r.top;
-    ex=c.left+c.width/2;ey=c.top+c.height/2;
-    var rk=document.createElement("div");rk.className="dvp";
-    rk.style.cssText="width:5px;height:20px;margin:-10px 0 0 -2px;border-radius:3px;background:linear-gradient(#fff,#f97316);box-shadow:0 0 12px 4px rgba(251,146,60,.8)";
-    document.body.appendChild(rk);
-    rk.animate([{transform:`translate(${sx}px,${sy}px)`},{transform:`translate(${ex}px,${ey}px)`}],{duration:900,easing:"cubic-bezier(.3,.6,.4,1)",fill:"forwards"});
-    setTimeout(function(){rk.remove()},950);
-    var t0=performance.now();
-    sparkT=setInterval(function(){var p=Math.min(1,(performance.now()-t0)/900);dot(sx+(ex-sx)*p,sy+(ey-sy)*p,"#fb923c",4,500,(Math.random()-.5)*24,30+Math.random()*30)},45);
-    setTimeout(function(){clearInterval(sparkT)},900);
-  });
-  at(10800,function(){
-    burst(ex,ey);
-    coin.style.transition="transform .5s cubic-bezier(.34,1.56,.64,1),opacity .2s";coin.style.opacity=1;coin.style.transform="scale(1)";
-  });
-  at(11500,function(){
-    coin.querySelector("svg").animate([{transform:"scaleX(1)"},{transform:"scaleX(.04)",offset:.125},{transform:"scaleX(-1)",offset:.25},{transform:"scaleX(.04)",offset:.375},{transform:"scaleX(1)",offset:.5},{transform:"scaleX(.04)",offset:.625},{transform:"scaleX(-1)",offset:.75},{transform:"scaleX(.04)",offset:.875},{transform:"scaleX(1)"}],{duration:1500,easing:"ease-in-out"});
-  });
-  at(13100,function(){tick.style.transition="stroke-dashoffset .6s ease";tick.style.strokeDashoffset=0});
-  at(13800,finish);
-}
-window.deliveryPlay=play;
-})();
+/* ===== CONFIGURATION – owner fills these in ===== */
+const CONFIG={
+  web3formsKey:"",            // Web3Forms access key (public key; get from web3forms.com)
+  firebase:{apiKey:"",authDomain:"",projectId:"",appId:""},  // Firebase web app settings (Auth: Email/Password + Google)
+  codeUrl:"",                 // secure backend (Cloud Function): POST {action:status|set|check|reset, code} + Bearer ID token -> {ok:true,hasCode?}
+  ads:{enabled:false,                 // set true to show the ad box; false = nothing is shown
+       adsenseClient:"",adsenseSlot:"", // Google AdSense: "ca-pub-XXXX" and slot id
+       customImage:"",customLink:""},   // or your own banner: image path + link
+  siteUrl:"",                 // real website URL used by Share (falls back to current page)
+  contact:{email:"",whatsapp:"",phone:""},
+  social:[]                   // e.g. [{name:"Instagram",url:"https://..."}]
+};
+/* ===== SERVICES & FORM SCHEMA – edit here to add options ===== */
+const F={
+name:{l:"Your name",t:"text",r:1},brand:{l:"Brand / business name",t:"text"},title:{l:"Project title",t:"text",r:1},
+w:{l:"Width",t:"number"},h:{l:"Height",t:"number"},unit:{l:"Unit",t:"select",o:["px","in","cm","mm","ft"]},
+use:{l:"Platform or target use",t:"text"},colors:{l:"Preferred colours",t:"text"},style:{l:"Style / reference description",t:"textarea",f:1},
+pages:{l:"Pages / features needed",t:"textarea",r:1,f:1},plat:{l:"Platform (WordPress, Shopify, custom…)",t:"text"},ref:{l:"Reference link(s)",t:"text"},
+social:{l:"Social platform(s)",t:"text",r:1},posts:{l:"Number of posts",t:"number"},ctype:{l:"Content type",t:"text"},
+len:{l:"Video length (approx.)",t:"text"},fmt:{l:"Format / aspect ratio",t:"select",o:["9:16 vertical","16:9 landscape","1:1 square","Other"]},
+foot:{l:"Do you have footage?",t:"select",o:["Yes","No","Partly"]},edit:{l:"Editing requirements",t:"textarea",r:1,f:1},
+dtype:{l:"Data type / source (Excel, survey, sales…)",t:"text"},tool:{l:"Preferred tool",t:"select",o:["No preference","Excel","Google Sheets","Power BI","Tableau","Python","R","SPSS"]},rows:{l:"Approx. data size (rows / files)",t:"text"},goal:{l:"What do you want to find out?",t:"textarea",r:1,f:1},deliv:{l:"Deliverable",t:"select",o:["Charts / dashboard","Cleaned data","Written report","Presentation","Other"]},
+desc:{l:"Describe your request",t:"textarea",r:1,f:1},notes:{l:"Additional notes",t:"textarea",f:1}};
+const G={design:["name","brand","title","w","h","unit","use","colors","style","notes"],web:["name","brand","title","pages","plat","ref","notes"],
+soc:["name","brand","title","social","posts","ctype","notes"],vid:["name","brand","title","len","fmt","foot","edit","notes"],data:["name","brand","title","dtype","tool","rows","goal","deliv","notes"],oth:["name","title","desc","notes"]};
+const S={
+"Website Development":{i:"🌐",g:"web",s:["Business Website","Portfolio Website","E-commerce Website","Landing Page","Website Redesign / Updates","Other Website Work"]},
+"Social Media Services":{i:"📱",g:"soc",s:["Social Media Post Design","Page Setup / Profile Branding","Content Design","Social Media Management","Other Social Media Work"]},
+"Graphic Designing":{i:"🎨",g:"design",s:["Logo Design","Flyer Design","Poster Design","Business Card Design","Visiting Card Design","Packaging Design","Social Media Post Design","Other Graphic Design"]},
+"Video Editing":{i:"🎬",g:"vid",s:["Reels / Shorts","YouTube Video Editing","Promotional Video","Business / Product Video","Other Video Editing"]},
+"Data Analysis":{i:"📊",g:"data",s:["Excel / Spreadsheet Analysis","Data Cleaning","Dashboards & Reports","Python / R Analysis","Survey / Research Data","Other Data Analysis"]},
+"Other Services":{i:"✨",g:"oth",s:["Other Request"]}};
+const DOMAINS=["gmail.com","outlook.com","hotmail.com","yahoo.com","icloud.com","proton.me","Other"];
+/* ===== STATE ===== */
+const $=s=>document.querySelector(s);
+let cat=null,sub=null,vals={},orderId=null,timers=[],busy=false;
+/* ===== AD SLOT: appears only when CONFIG.ads is set up ===== */
+(function(){const a=CONFIG.ads,box=document.getElementById("ad");if(!a||!a.enabled)return;
+ if(a.customImage&&a.customLink){box.innerHTML=`<small>Ad</small><a href="${encodeURI(a.customLink)}" target="_blank" rel="sponsored noopener"><img src="${encodeURI(a.customImage)}" alt="Advertisement"></a>`;box.hidden=false}
+ else if(a.adsenseClient&&a.adsenseSlot){const sc=document.createElement("script");sc.async=true;sc.crossOrigin="anonymous";sc.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="+encodeURIComponent(a.adsenseClient);document.head.appendChild(sc);
+  box.innerHTML=`<small>Ad</small><ins class="adsbygoogle" style="display:block" data-ad-client="${esc(a.adsenseClient)}" data-ad-slot="${esc(a.adsenseSlot)}" data-ad-format="auto" data-full-width-responsive="true"></ins>`;box.hidden=false;
+  try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch{}}})();
+/* ===== NAV / STATIC ===== */
+$("#yr").textContent=new Date().getFullYear();
+$("#mb").onclick=()=>{const o=$("#menu").classList.toggle("open");$("#mb").setAttribute("aria-expanded",o)};
+$("#menu").onclick=e=>{if(e.target.tagName==="A")$("#menu").classList.remove("open")};
+$("#pg").innerHTML=[1,2,3,4,5,6].map(n=>`<div class="pi"><img src="assets/work${n}.jpg" alt="Portfolio work ${n}" onerror="this.remove()">Work ${n}</div>`).join("");
+const c=CONFIG.contact,ci=[c.email&&`Email: ${esc(c.email)}`,c.whatsapp&&`WhatsApp: ${esc(c.whatsapp)}`,c.phone&&`Phone: ${esc(c.phone)}`].filter(Boolean);
+if(ci.length)$("#ci").innerHTML=ci.join(" · ");
+$("#soc").innerHTML=CONFIG.social.map(s=>`<a href="${encodeURI(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`).join("");
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+/* ===== SERVICE SELECTION ===== */
+$("#cats").innerHTML=Object.keys(S).map(k=>`<button type="button" class="card" data-c="${k}" aria-pressed="false"><i>${S[k].i}</i><b>${k}</b></button>`).join("");
+$("#cats").onclick=e=>{const b=e.target.closest(".card");if(!b)return;cat=b.dataset.c;sub=null;
+ document.querySelectorAll(".card").forEach(x=>{const on=x===b;x.classList.toggle("on",on);x.setAttribute("aria-pressed",on)});
+ $("#subc").innerHTML=S[cat].s.map(s=>`<button type="button" class="chip" aria-pressed="false">${s}</button>`).join("");
+ $("#subs").hidden=false;$("#of").hidden=true;$("#subs").scrollIntoView({behavior:"smooth",block:"nearest"})};
+$("#subc").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;sub=b.textContent;
+ document.querySelectorAll(".chip").forEach(x=>{const on=x===b;x.classList.toggle("on",on);x.setAttribute("aria-pressed",on)});renderForm()};
+function renderForm(){
+ $("#ft").textContent=`${cat} → ${sub}`;
+ $("#fields").innerHTML=G[S[cat].g].map(k=>{const f=F[k],id="f_"+k,v=esc(vals[k]||"");
+  const r=f.r?" required":"",lab=`<label for="${id}" class="${f.r?"req":""}">${f.l}</label>`;
+  let el=f.t==="textarea"?`<textarea id="${id}" name="${k}"${r}>${v}</textarea>`:
+   f.t==="select"?`<select id="${id}" name="${k}"${r}>${f.o.map(o=>`<option${vals[k]===o?" selected":""}>${o}</option>`).join("")}</select>`:
+   `<input id="${id}" name="${k}" type="${f.t}"${f.t==="number"?' min="0" step="any"':""} value="${v}"${r}>`;
+  return `<div class="${f.f?"full":""}">${lab}${el}</div>`}).join("");
+ $("#of").hidden=false}
+$("#fields").addEventListener("input",e=>{if(e.target.name)vals[e.target.name]=e.target.value});
+$("#fields").addEventListener("change",e=>{if(e.target.name)vals[e.target.name]=e.target.value});
+/* ===== EMAIL ===== */
+$("#ed").innerHTML=DOMAINS.map(d=>`<option>${d}</option>`).join("");
+function email(){const l=$("#el").value.trim();if(l.includes("@"))return l;const d=$("#ed").value==="Other"?$("#ec").value.trim():$("#ed").value;return l&&d?`${l}@${d}`:""}
+const emailOk=e=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
+function emailUpd(){$("#ec").hidden=$("#ed").value!=="Other";$("#efull").textContent=email()||"—"}
+["el","ed","ec"].forEach(i=>$("#"+i).addEventListener("input",emailUpd));$("#ed").addEventListener("change",emailUpd);
+function setOtp(t,k){$("#om").textContent=t;$("#om").className="msg "+(k||"")}
+$("#fg").onclick=async()=>{if(!window.codeApi)return setOtp("Sign-in is not configured yet.","bad");
+ try{await codeApi("reset");setOtp("We emailed you instructions to reset your order code.","ok")}catch{setOtp("Could not start the reset. Please try again.","bad")}};
+/* ===== SUBMIT (Web3Forms, only after verification) ===== */
+function newId(){const a="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",r=crypto.getRandomValues(new Uint8Array(6));return "UG-"+[...r].map(x=>a[x%a.length]).join("")}
+$("#of").onsubmit=async e=>{e.preventDefault();if(busy)return;const fm=$("#fm");fm.textContent="";
+ if(!$("#of").checkValidity())return $("#of").reportValidity();
+ const em=email();if(!emailOk(em))return fm.textContent="Enter a valid email address.";
+ if(!CONFIG.web3formsKey)return fm.textContent="Order delivery is not configured yet (set CONFIG.web3formsKey).";
+ busy=true;$("#sub").disabled=true;$("#sub").textContent="Checking code…";
+ try{if(!window.codeApi)throw new Error("cfg");await codeApi("check",$("#oc").value)}
+ catch(x){busy=false;$("#sub").disabled=false;$("#sub").textContent="Submit Order";return fm.textContent=x.message==="cfg"?"Please sign in first (account and code backend must be configured).":"Wrong order code, or email not verified."}
+ $("#sub").textContent="Submitting…";
+ orderId=orderId||newId();
+ const wa=$("#wa").value.trim(),data={access_key:CONFIG.web3formsKey,subject:`New order ${orderId} – ${sub}`,from_name:"Ubaid Gill Studio Website",
+  order_id:orderId,category:cat,service:sub,email:em,whatsapp:wa||"(not given)",code_checked:"yes",...Object.fromEntries(Object.entries(vals).filter(([,v])=>v))};
+ try{const r=await fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(data)});
+  const d=await r.json();if(!d.success)throw 0;busy=false;$("#sub").textContent="Submit Order";play()}
+ catch{busy=false;$("#sub").disabled=false;$("#sub").textContent="Submit Order";fm.textContent="Submission failed. Your details are kept – please try again."}};
+/* ===== DELIVERY ANIMATION ===== */
+const fx=$("#fx"),scs=[...document.querySelectorAll("#sc>div")];
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function show(i){scs.forEach((s,j)=>s.classList.toggle("on",j===i))}
+function play(){fx.classList.add("on");document.body.style.overflow="hidden";$("#fin").classList.remove("on");$("#sc").style.display="";$("#cap").style.display="";$("#sk").style.display="";
+ $("#oid").textContent=orderId;if(reduce)return finish();
+ const T=(ms,fn)=>timers.push(setTimeout(fn,ms));
+ show(0);$("#cap").textContent="Preparing your order…";T(1800,()=>scs[0].classList.add("go"));
+ T(3000,()=>{show(1);$("#cap").textContent="Order sealed and secured"});
+ T(4600,()=>{show(2);$("#cap").textContent="On its way to Ubaid Gill Studio…";const r=scs[2].querySelector(".rd");r.style.animation="none";void r.offsetWidth;r.style.animation=""});
+ T(8000,()=>{show(3);$("#cap").textContent="Delivered to the studio!"});
+ T(10500,()=>{show(4);$("#cap").textContent="Order received ✓"});T(13500,finish)}
+function clear(){timers.forEach(clearTimeout);timers=[]}
+function finish(){clear();scs.forEach(s=>s.classList.remove("on"));$("#sc").style.display="none";$("#cap").style.display="none";$("#sk").style.display="none";$("#fin").classList.add("on");$("#no").focus()}
+$("#sk").onclick=finish;
+$("#no").onclick=()=>{clear();fx.classList.remove("on");document.body.style.overflow="";scs[0].classList.remove("go");
+ cat=sub=orderId=null;vals={};$("#of").reset();$("#of").hidden=true;$("#subs").hidden=true;$("#fields").innerHTML="";
+ document.querySelectorAll(".card,.chip").forEach(x=>x.classList.remove("on"));$("#oc").value="";setOtp("");$("#sub").disabled=false;emailUpd();window.prefill&&prefill();$("#fm").textContent="";
+ $("#services").scrollIntoView({behavior:"smooth"})};
+$("#sh").onclick=async()=>{const u=CONFIG.siteUrl||location.href;
+ try{if(navigator.share)await navigator.share({title:"Ubaid Gill Studio",text:"Freelance services by Ubaid Gill",url:u});else{await navigator.clipboard.writeText(u);$("#shm").textContent="Link copied!"}}
+ catch{if(!navigator.share)$("#shm").textContent="Copy this link: "+u}};
 </script>
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
-
-// --- Firebase init state flags used by the order form ---
-window.firebaseReady = false;
-window.currentUser = null;
-window.__pendingSubmit = false;
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBihNyj5uNuLRHDtIrf4VLLMATRcVxGwT8",
-  authDomain: "ubaid-gill-studio.firebaseapp.com",
-  projectId: "ubaid-gill-studio",
-  storageBucket: "ubaid-gill-studio.firebasestorage.app",
-  messagingSenderId: "984380598827",
-  appId: "1:984380598827:web:47fec10e0b7902d50f186e"
-};
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-const $ = id => document.getElementById(id);
-const modal = $("authModal");
-let mode = "login";
-
-function setMode(m){
-  mode = m;
-  $("authTitle").textContent = m === "signup" ? "Create account" : "Login";
-  $("authGo").textContent = m === "signup" ? "Sign Up" : "Login";
-  $("aNameWrap").style.display = m === "signup" ? "block" : "none";
-  $("authSwitch").textContent = m === "signup" ? "Already have an account? Login" : "New here? Sign Up";
-  $("authMsg").classList.remove("show");
-}
-function openAuth(m){ setMode(m); modal.classList.add("show"); }
-function showErr(t){ const e = $("authMsg"); e.textContent = t; e.classList.add("show"); }
-
-$("loginBtn").onclick = () => openAuth("login");
-$("signupBtn").onclick = () => openAuth("signup");
-$("logoutBtn").onclick = () => signOut(auth);
-$("authClose").onclick = () => { modal.classList.remove("show"); window.__pendingSubmit = false; };
-$("authSwitch").onclick = e => { e.preventDefault(); setMode(mode === "signup" ? "login" : "signup"); };
-
-$("authGo").onclick = async () => {
-  const email = $("aEmail").value.trim(), pass = $("aPass").value;
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { showErr("Please enter a valid email."); return; }
-  if (!pass || pass.length < 6) { showErr("Password must be at least 6 characters."); return; }
-  $("authGo").disabled = true;
-  try {
-    if (mode === "signup") {
-      const name = $("aName").value.trim();
-      if (!name || name.length < 2) { showErr("Please enter your full name."); $("authGo").disabled = false; return; }
-      const cred = await createUserWithEmailAndPassword(auth, email, pass);
-      await updateProfile(cred.user, { displayName: name });
-      await setDoc(doc(db, "users", cred.user.uid), { name, email, createdAt: serverTimestamp() });
-    } else {
-      await signInWithEmailAndPassword(auth, email, pass);
-    }
-    modal.classList.remove("show");
-  } catch (e) {
-    const m = {
-      "auth/invalid-credential": "Wrong email or password.",
-      "auth/invalid-login-credentials": "Wrong email or password.",
-      "auth/email-already-in-use": "This email is already registered.",
-      "auth/weak-password": "Password must be at least 6 characters.",
-      "auth/invalid-email": "Please enter a valid email.",
-      "auth/too-many-requests": "Too many attempts. Please wait a few minutes."
-    };
-    showErr(m[e.code] || "Something went wrong. Try again.");
-  } finally {
-    $("authGo").disabled = false;
-  }
-};
-
-$("authGoogle").onclick = async () => {
-  try {
-    const r = await signInWithPopup(auth, new GoogleAuthProvider());
-    await setDoc(doc(db, "users", r.user.uid), { name: r.user.displayName, email: r.user.email }, { merge: true });
-    modal.classList.remove("show");
-  } catch (e) { showErr("Google login failed. Please try again."); }
-};
-
-onAuthStateChanged(auth, user => {
-  window.currentUser = user;
-  window.firebaseReady = true;
-
-  $("loginBtn").style.display = user ? "none" : "";
-  $("signupBtn").style.display = user ? "none" : "";
-  $("logoutBtn").style.display = user ? "" : "none";
-
-  // update hint under form
-  const hint = $("loginHint");
-  if (hint) {
-    if (user) {
-      hint.textContent = "✅ Logged in as " + (user.displayName || user.email) + ". You can submit your order now.";
-      hint.classList.add("ok");
-    } else {
-      hint.innerHTML = "🔒 You must <b>Login</b> or <b>Sign Up</b> before submitting your order.";
-      hint.classList.remove("ok");
-    }
-  }
-  // update hint inside review modal
-  const mh = $("modalHint");
-  if (mh) mh.style.display = user ? "none" : "block";
-
-  if (user) {
-    if (!$("name").value) $("name").value = user.displayName || "";
-    if (!$("email").value) $("email").value = user.email || "";
-  }
-
-  // If user clicked Submit while logged out → auto reopen review after login
-  if (user && window.__pendingSubmit) {
-    window.__pendingSubmit = false;
-    const m = document.getElementById("modal");
-    const sub = document.getElementById("submit");
-    if (m && sub) { m.classList.add("show"); sub.focus(); }
-  }
-});
-
-// Save order to Firestore (only for logged-in user)
-window.saveOrder = async d => {
-  const u = auth.currentUser;
-  if (!u) { throw new Error("Not authenticated"); }
-  await addDoc(collection(db, "orders"), {
-    ...d,
-    uid: u.uid,
-    userEmail: u.email || "",
-    createdAt: serverTimestamp()
-  });
-};
-
-window.firebaseReady = true;
+const fb=CONFIG.firebase,gate=$("#gate");let U=null;
+const gm=(t,k)=>{$("#gm").textContent=t;$("#gm").className="msg "+(k||"")};
+const showP=p=>["gu","gi","gs"].forEach(x=>$("#"+x).hidden=x!==p);
+$("#g2i").onclick=()=>showP("gi");$("#g2u").onclick=()=>showP("gu");
+window.codeApi=async(action,code)=>{const t=U&&await U.getIdToken();if(!CONFIG.codeUrl||!t)throw new Error("cfg");
+ const r=await fetch(CONFIG.codeUrl,{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+t},body:JSON.stringify({action,code})});
+ const d=await r.json().catch(()=>({}));if(!r.ok||!d.ok)throw new Error("fail");return d};
+window.prefill=()=>{if(!U||!U.email)return;const[l,d]=U.email.split("@"),s=$("#ed");$("#el").value=l;s.value=[...s.options].some(o=>o.value===d)?d:"Other";if(s.value==="Other")$("#ec").value=d;s.dispatchEvent(new Event("change"))};
+const em=x=>({"auth/email-already-in-use":"This email already has an account. Please sign in.","auth/weak-password":"Password is too weak.","auth/invalid-credential":"Wrong email or password.","auth/popup-closed-by-user":"Google sign-in was cancelled."}[x.code]||"Something went wrong. Please try again.");
+if(!(fb.apiKey&&fb.projectId)){gate.classList.add("on");showP("gi");$("#gdev").hidden=false;$("#gpv").onclick=()=>gate.classList.remove("on");
+ document.querySelectorAll("#gate form").forEach(f=>f.onsubmit=e=>{e.preventDefault();gm("Not configured yet.","bad")});document.querySelectorAll(".gog").forEach(b=>b.onclick=()=>gm("Not configured yet.","bad"))}
+else{const B="https://www.gstatic.com/firebasejs/10.14.1/";
+ const [{initializeApp},A]=await Promise.all([import(B+"firebase-app.js"),import(B+"firebase-auth.js")]);const auth=A.getAuth(initializeApp(fb));
+ A.onAuthStateChanged(auth,async u=>{U=u;$("#acct").hidden=!u;
+  if(!u){gate.classList.add("on");showP("gu");return}
+  prefill();try{const d=await codeApi("status");if(d.hasCode)gate.classList.remove("on");else{gate.classList.add("on");showP("gs")}}catch{gate.classList.remove("on")}});
+ $("#gu").onsubmit=async e=>{e.preventDefault();if(!e.target.checkValidity())return e.target.reportValidity();gm("Creating account…");
+  try{const c=await A.createUserWithEmailAndPassword(auth,$("#ge").value.trim(),$("#gp").value);await A.updateProfile(c.user,{displayName:$("#gn").value.trim()});await A.sendEmailVerification(c.user);gm("Verification link sent to your email.","ok")}catch(x){gm(em(x),"bad")}};
+ $("#gi").onsubmit=async e=>{e.preventDefault();if(!e.target.checkValidity())return e.target.reportValidity();gm("Signing in…");
+  try{await A.signInWithEmailAndPassword(auth,$("#ie").value.trim(),$("#ip").value);gm("")}catch(x){gm(em(x),"bad")}};
+ document.querySelectorAll(".gog").forEach(b=>b.onclick=async()=>{try{await A.signInWithPopup(auth,new A.GoogleAuthProvider());gm("")}catch(x){gm(em(x),"bad")}});
+ $("#gs").onsubmit=async e=>{e.preventDefault();if(!e.target.checkValidity())return e.target.reportValidity();
+  try{await codeApi("set",$("#sc1").value);$("#sc1").value="";gate.classList.remove("on");gm("")}catch{gm("Could not save the code. Please try again.","bad")}};
+ $("#outb").onclick=()=>A.signOut(auth)}
 </script>
-<!--
-=====================================================================
-  🔥 FIREBASE FIRESTORE SECURITY RULES — Paste in Firebase Console
-  Console → Firestore Database → Rules → paste → Publish
-=====================================================================
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-
-    // Users can only read/write their own profile
-    match /users/{uid} {
-      allow read:   if request.auth != null && request.auth.uid == uid;
-      allow create: if request.auth != null && request.auth.uid == uid
-                    && request.resource.data.email == request.auth.token.email;
-      allow update: if request.auth != null && request.auth.uid == uid;
-      allow delete: if false;
-    }
-
-    // Orders: only authenticated users can create; only owner can read
-    match /orders/{orderId} {
-      allow create: if request.auth != null
-                    && request.resource.data.uid == request.auth.uid
-                    && request.resource.data.name is string
-                    && request.resource.data.email is string
-                    && request.resource.data.service is string
-                    && request.resource.data.description is string
-                    && request.resource.data.description.size() >= 20
-                    && request.resource.data.description.size() <= 1500
-                    && request.resource.data.createdAt == request.time;
-      allow read:   if request.auth != null && resource.data.uid == request.auth.uid;
-      allow update: if false;
-      allow delete: if false;
-    }
-  }
-}
-=====================================================================
--->
 </body>
 </html>
